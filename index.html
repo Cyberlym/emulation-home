@@ -53,8 +53,6 @@
             text-shadow: 0 0 15px rgba(160, 32, 240, 0.6); /* Efeito de brilho roxo mais intenso */
         }
 
-        /* A regra .menu-icon foi removida, pois o elemento foi excluído do HTML */
-
         /* Seção Principal "Hero" (Título, Descrição e Barra de Pesquisa) */
         .hero-section {
             text-align: center; /* Centraliza o conteúdo */
@@ -179,9 +177,10 @@
             font-size: 1.3em; /* Tamanho do título do jogo */
             margin: 0 0 10px; /* Margens */
             color: var(--highlight-color); /* Cor do título do jogo (Roxo de destaque) */
-            white-space: nowrap; /* Impede quebra de linha */
-            overflow: hidden; /* Oculta texto que excede a largura */
-            text-overflow: ellipsis; /* Adiciona "..." para texto oculto */
+            /* Se você quiser que o título quebre a linha em vez de truncar, remova as 3 linhas abaixo */
+            /* white-space: nowrap; */
+            /* overflow: hidden; */
+            /* text-overflow: ellipsis; */
         }
 
         /* Estilo para o botão/link de "Baixar" */
@@ -231,7 +230,6 @@
             .logo {
                 font-size: 1.8em;
             }
-            /* .menu-icon foi removido */
             .hero-section h1 {
                 font-size: 2.5em;
             }
@@ -263,7 +261,6 @@
                 flex-direction: column;
                 align-items: flex-start; /* Alinhe à esquerda, mas ainda centralizado por just-content: center */
             }
-            /* .menu-icon foi removido */
             .hero-section {
                 padding: 25px 15px 35px; /* Ajustado para telas muito pequenas */
             }
@@ -297,7 +294,7 @@
 <body>
     <header class="main-header">
         <div class="logo">Emulation Home</div>
-        </header>
+    </header>
 
     <section class="hero-section">
         <h1>Jogos de PC</h1>
@@ -339,41 +336,42 @@
                 <div class="game-info">
                     <h2>Cuphead</h2>
                     <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-              <div class="game card" data-name="Fnaf mimic">
+            <div class="game-card" data-name="Fnaf mimic">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj-rM0rwlCJ37ap2fziMD0hFe34Rjgxqq-0QhT0nQ7Z6YIUSmk9cau6TE&s=10" alt="Five Nights at Freddy's: Secret of the Mimic">
                 <div class="game-info">
                     <h2>Five Nights at Freddy's: Secret of the Mimic</h2>
-                    <a href="https://gofile.io/d/Yt2mRo"game-download-link" target="_blank">Baixar Jogo</a> 
-      
-   
+                    <a href="https://gofile.io/d/Yt2mRo" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-
-<div class="game card"Just cause 2"">
-                <img src="https://gofile.io/d/Yt2mRo" alt="Just cause 2">
+            <div class="game-card" data-name="Just cause 2">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Just_Cause_2_cover_art.jpg" alt="Just Cause 2">
                 <div class="game-info">
-                    <h2>Just cause 2</h2>
-                    <a href="https://buzzheavier.com/wd40jnidba2j"game-download-link" target="_blank">Baixar Jogo</a> 
-          
+                    <h2>Just Cause 2</h2>
+                    <a href="https://buzzheavier.com/wd40jnidba2j" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-<div class="game card" data-name="dead space">
+            <div class="game-card" data-name="Dead space">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/3/35/Dead_Space_capa.png" alt="Dead space">
                 <div class="game-info">
                     <h2>Dead Space</h2>
-                    <a href="https://buzzheavier.com/qybukhrujnlj"game-download-link" target="_blank">Baixar Jogo</a> 
-                
-           
+                    <a href="https://buzzheavier.com/qybukhrujnlj" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-<div class="game card" data-name="Mortal Kombat">
+            <div class="game-card" data-name="Mortal Kombat">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/2/2d/Mortal_Kombat_Komplete_Edition.jpg" alt="mortal Kombat 9">
                 <div class="game-info">
                     <h2>Mortal Kombat Komplete edition</h2>
-                    <a href="https://buzzheavier.com/9klqvyqn0i3e"game-download-link" target="_blank">Baixar Jogo</a> 
-                
-            
+                    <a href="https://buzzheavier.com/9klqvyqn0i3e" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-            
-           
+        </div>
     </main>
 
     <footer class="main-footer">
@@ -384,24 +382,32 @@
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
             const gameList = document.getElementById('gameList');
-            const gameCards = document.querySelectorAll('.game-card');
+            const initialGameCards = document.querySelectorAll('.game-card'); // Seleciona TODOS os cards presentes no HTML
 
-            // Verifica se há cards de jogo no carregamento inicial
-            // Se não houver, exibe a mensagem "Nenhum jogo encontrado".
-            if (gameCards.length === 0) {
-                const initialNoResultsMessage = document.createElement('p');
-                initialNoResultsMessage.classList.add('no-results');
-                initialNoResultsMessage.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
-                gameList.appendChild(initialNoResultsMessage);
+            // Função para exibir/ocultar a mensagem "Nenhum resultado"
+            function toggleNoResultsMessage(show) {
+                let noResultsMessage = document.querySelector('.no-results');
+
+                if (show && !noResultsMessage) {
+                    const p = document.createElement('p');
+                    p.classList.add('no-results');
+                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
+                    gameList.appendChild(p);
+                } else if (!show && noResultsMessage) {
+                    noResultsMessage.remove();
+                }
             }
 
             // Lógica de pesquisa: filtra os cards de jogo visíveis
             searchInput.addEventListener('input', (event) => {
-                const searchTerm = event.target.value.toLowerCase();
+                const searchTerm = event.target.value.toLowerCase().trim(); // Termo de busca em minúsculas e sem espaços extras
                 let foundResults = false;
 
-                gameCards.forEach(card => {
-                    const gameName = card.getAttribute('data-name').toLowerCase();
+                // Percorra a lista de cards de jogo inicial
+                initialGameCards.forEach(card => {
+                    const gameName = card.getAttribute('data-name').toLowerCase(); // Nome do jogo no atributo data-name
+                    
+                    // Verifica se o nome do jogo INCLUI o termo de busca
                     if (gameName.includes(searchTerm)) {
                         card.style.display = 'flex'; // Mostra o card se corresponder
                         foundResults = true;
@@ -410,14 +416,5 @@
                     }
                 });
 
-                // Lógica para exibir/remover a mensagem "Nenhum resultado"
-                let noResultsMessage = document.querySelector('.no-results');
-
-                if (!foundResults && !noResultsMessage) {
-                    const p = document.createElement('p');
-                    p.classList.add('no-results');
-                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
-                    gameList.appendChild(p);
-                } else if (foundResults && noResultsMessage) {
-                    noResultsMessage.remove();
-                }
+                // Exibe ou esconde a mensagem de "nenhum resultado"
+   
