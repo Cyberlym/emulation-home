@@ -64,6 +64,10 @@
             margin-top: 0;
         }
 
+        /* Removido o estilo anterior da search-container e searchInput
+           para recriá-los com nova abordagem, se necessário.
+           Porém, neste caso, o CSS era funcional, então vou focar no JS. */
+
         .search-container {
             position: relative;
             width: 100%;
@@ -98,6 +102,7 @@
             pointer-events: none;
             font-size: 1.1em;
         }
+
 
         .game-list {
             width: 100%;
@@ -164,3 +169,178 @@
             margin-top: auto;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
+
+        .download-link:hover {
+            background-color: var(--action-blue-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .no-results-message {
+            text-align: center;
+            color: var(--secondary-text);
+            font-size: 1.2em;
+            margin-top: 40px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--footer-text);
+            font-size: 0.9em;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .credits {
+            color: var(--credit-text); /* Cor do nome Rafaela (branco puro) */
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Responsividade - Ajustes para a interface maior */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 960px;
+            }
+            .game-list {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 20px;
+            }
+            .game-card img {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .game-list {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            .game-card img {
+                height: 180px;
+            }
+            h1 {
+                font-size: 2.4em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .download-link {
+                padding: 10px 16px;
+                font-size: 0.9em;
+            }
+            #searchInput {
+                padding: 10px 15px;
+                padding-right: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            .game-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .game-card img {
+                height: 160px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .search-container {
+                max-width: 100%;
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Emulation Home</h1>
+            <p>Seus jogos para emulação estão aqui.</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="newSearchInput" placeholder="Buscar jogos por nome...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="game-list" id="gameList">
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/f/f3/Red_Dead_Redemption_capa.png" alt="Red Dead Redemption">
+                <div class="game-info">
+                    <h3>Red Dead Redemption</h3>
+                    <a href="https://gofile.io/d/TTVnFR" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Grand_Theft_Auto_V_cover.jpg" alt="Grand Theft Auto V">
+                <div class="game-info">
+                    <h3>Grand Theft Auto V</h3>
+                    <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/b3/Cyberpunk_2077_cover_art.jpg" alt="Cyberpunk 2077">
+                <div class="game-info">
+                    <h3>Cyberpunk 2077</h3>
+                    <a href="https://buzzheavier.com/rx20ieyt9m2e" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a2/Minecraft_cover.png" alt="Minecraft">
+                <div class="game-info">
+                    <h3>Minecraft</h3>
+                    <a href="https://megadb.net/download" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/d4/The_Last_of_Us_Part_II_cover_art.jpg" alt="The Last of Us Part II">
+                <div class="game-info">
+                    <h3>The Last of Us Part II</h3>
+                    <a href="https://gofile.io/d/gotpPY" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/f/fc/Elden_Ring_cover_art.jpg" alt="Elden Ring">
+                <div class="game-info">
+                    <h3>Elden Ring</h3>
+                    <a href="https://gofile.io/d/S683NC" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/5b/The_Witcher_3_Wild_Hunt_cover.png" alt="The Witcher 3: Wild Hunt">
+                <div class="game-info">
+                    <h3>The Witcher 3: Wild Hunt</h3>
+                    <a href="https://gofile.io/d/dqeNQB" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/God_of_War_%282018%29_cover.jpg" alt="God of War (2018)">
+                <div class="game-info">
+                    <h3>God of War (2018)</h3>
+                    <a href="https://gofile.io/d/pP1wni" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="
