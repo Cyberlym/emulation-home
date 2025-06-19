@@ -289,8 +289,7 @@
             .game-info h2 {
                 font-size: 1.1em;
             }
-        }
-    </style>
+        </style>
 </head>
 <body>
     <header class="main-header">
@@ -308,7 +307,6 @@
 
     <main class="game-section">
         <div class="game-grid" id="gameList">
-            <!-- Game Card: GTA 5 -->
             <div class="game-card" data-name="GTA 5">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" alt="GTA V">
                 <div class="game-info">
@@ -317,7 +315,6 @@
                 </div>
             </div>
 
-            <!-- Game Card: GTA 4 -->
             <div class="game-card" data-name="GTA 4">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/9/91/Grand_Theft_Auto_IV_capa.png" alt="GTA 4">
                 <div class="game-info">
@@ -326,7 +323,6 @@
                 </div>
             </div>
 
-            <!-- Game Card: Resident Evil 6 -->
             <div class="game-card" data-name="Resident evil 6">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" alt="Resident evil 6">
                 <div class="game-info">
@@ -335,7 +331,6 @@
                 </div>
             </div>
 
-            <!-- Game Card: Cuphead -->
             <div class="game-card" data-name="Cuphead">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/c/c1/Cuphead_capa.png" alt="Cuphead">
                 <div class="game-info">
@@ -344,76 +339,8 @@
                 </div>
             </div>
 
-            <!-- Game Card: Five Nights at Freddy's: Secret of the Mimic -->
             <div class="game-card" data-name="Fnaf mimic">
-                <!-- Usando placeholder.co para garantir que a imagem apareça, mesmo que a original falhe -->
-                <img src="https://placehold.co/250x320/330066/E0E0FF?text=FNAF+Mimic" alt="Five Nights at Freddy's: Secret of the Mimic">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj-rM0rwlCJ37ap2fziMD0hFe34Rjgxqq-0QhT0nQ7Z6YIUSmk9cau6TE&s=10" alt="Five Nights at Freddy's: Secret of the Mimic">
                 <div class="game-info">
                     <h2>Five Nights at Freddy's: Secret of the Mimic</h2>
-                    <a href="https://gofile.io/d/Yt2mRo" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
-
-            <!-- Game Card: Just Cause 2 -->
-            <div class="game-card" data-name="Just cause 2">
-                <!-- Usando placeholder.co para garantir que a imagem apareça, mesmo que a original falhe -->
-                <img src="https://placehold.co/250x320/330066/E0E0FF?text=Just+Cause+2" alt="Just Cause 2">
-                <div class="game-info">
-                    <h2>Just Cause 2</h2>
-                    <a href="https://buzzheavier.com/wd40jnidba2j" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
-
-            <!-- Game Card: Dead Space -->
-            <div class="game-card" data-name="Dead space">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/3/35/Dead_Space_capa.png" alt="Dead space">
-                <div class="game-info">
-                    <h2>Dead Space</h2>
-                    <a href="https://buzzheavier.com/qybukhrujnlj" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
-
-            <!-- Game Card: Mortal Kombat Komplete Edition -->
-            <div class="game-card" data-name="Mortal Kombat">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/2/2d/Mortal_Kombat_Komplete_Edition.jpg" alt="mortal Kombat 9">
-                <div class="game-info">
-                    <h2>Mortal Kombat Komplete edition</h2>
-                    <a href="https://buzzheavier.com/9klqvyqn0i3e" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <footer class="main-footer">
-        <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('searchInput');
-            const gameList = document.getElementById('gameList');
-            // Recarrega a NodeList dos cards de jogo, pois ela pode ser dinâmica
-            let gameCards = document.querySelectorAll('.game-card');
-
-            // Função para exibir/ocultar a mensagem "Nenhum resultado"
-            function toggleNoResultsMessage(show) {
-                let noResultsMessage = document.querySelector('.no-results');
-
-                if (show && !noResultsMessage) {
-                    const p = document.createElement('p');
-                    p.classList.add('no-results');
-                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
-                    gameList.appendChild(p);
-                } else if (!show && noResultsMessage) {
-                    noResultsMessage.remove();
-                }
-            }
-
-            // Lógica de pesquisa: filtra os cards de jogo visíveis
-            searchInput.addEventListener('input', (event) => {
-                const searchTerm = event.target.value.toLowerCase().trim(); // Trim para remover espaços em branco
-                let foundResults = false;
-
-                gameCards.forEach(card => {
-                    const gameName = card.getAttribute('data-nam
+                    <a href="
