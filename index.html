@@ -13,10 +13,12 @@
             --card-dark: #1e1e1e;
             --text-light: #E0E0E0;
             --primary-red: #E74C3C; /* NOVA COR: Vermelho vibrante para o logo */
-            --primary-purple: #9b59b6; /* Mantida para outros elementos se desejar usar */
             --action-blue: #007bff;
             --action-blue-hover: #0056b3;
             --border-color: #333;
+            --secondary-text: #b0b0b0; /* Cor para textos secundários */
+            --footer-text: #888; /* Cor para textos do rodapé */
+            --credit-text: #FFFFFF; /* Cor para o nome Rafaela (branco puro para garantir visibilidade) */
         }
 
         body {
@@ -41,75 +43,75 @@
 
         header {
             text-align: center;
-            padding: 25px 0 20px 0; /* Mais padding para um visual mais "aberto" */
-            margin-bottom: 30px; /* Aumenta a margem para o conteúdo */
+            padding: 25px 0 20px 0;
+            margin-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
             width: 100%;
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em; /* Aumenta o tamanho da logo */
+            font-size: 2.8em;
             color: var(--primary-red); /* Cor vermelha para o H1 */
-            margin-bottom: 8px; /* Ajusta o espaçamento */
-            letter-spacing: 1px; /* Espaçamento entre letras para um visual mais profissional */
-            text-shadow: 0 0 10px rgba(231, 76, 60, 0.4); /* Sombra sutil para destaque */
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.4);
         }
 
         header p {
-            font-size: 1.05em; /* Ligeiramente maior para melhor leitura */
-            color: #b0b0b0;
+            font-size: 1.05em;
+            color: var(--secondary-text); /* Usando variável para consistência */
             margin-top: 0;
         }
 
         .search-container {
             position: relative;
             width: 100%;
-            max-width: 600px; /* Aumenta a largura da barra de busca */
-            margin: 0 auto 35px auto; /* Mais margem para separar do conteúdo */
+            max-width: 600px;
+            margin: 0 auto 35px auto;
         }
 
         #searchInput {
-            width: calc(100% - 50px); /* Ajusta para o novo ícone */
-            padding: 14px 20px; /* Mais padding na barra de busca */
-            padding-right: 50px; /* Espaço para o ícone */
-            border: 2px solid var(--border-color); /* Borda um pouco mais visível */
-            border-radius: 30px; /* Mais arredondado */
+            width: calc(100% - 50px);
+            padding: 14px 20px;
+            padding-right: 50px;
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
             background-color: var(--card-dark);
             color: var(--text-light);
-            font-size: 1.05em; /* Fonte ligeiramente maior */
+            font-size: 1.05em;
             outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição para sombra */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         #searchInput:focus {
-            border-color: var(--primary-red); /* Borda vermelha no foco */
-            box-shadow: 0 0 12px rgba(231, 76, 60, 0.3); /* Sombra no foco */
+            border-color: var(--primary-red);
+            box-shadow: 0 0 12px rgba(231, 76, 60, 0.3);
         }
 
         .search-icon {
             position: absolute;
-            right: 20px; /* Ajusta posição do ícone */
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: #999; /* Cor do ícone mais suave */
+            color: #999;
             pointer-events: none;
-            font-size: 1.1em; /* Tamanho do ícone */
+            font-size: 1.1em;
         }
 
         .game-list {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Min-width maior para cards um pouco maiores */
-            gap: 25px; /* Aumenta o espaçamento entre os cards */
-            margin-bottom: 50px; /* Mais margem inferior */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
         .game-card {
             background-color: var(--card-dark);
-            border-radius: 12px; /* Mais arredondado */
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Sombra mais pronunciada */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -117,21 +119,21 @@
         }
 
         .game-card:hover {
-            transform: translateY(-8px); /* Efeito de elevação mais notável */
+            transform: translateY(-8px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
         }
 
         .game-card img {
             width: 100%;
-            height: 280px; /* Ligeiramente mais alta para acomodar 'contain' */
-            object-fit: contain; /* ESSENCIAL: Garante que a imagem inteira seja visível */
-            background-color: #0d0d0d; /* Fundo mais escuro para as barras de 'contain' */
+            height: 280px; /* Mantém a altura para padronizar os cards */
+            object-fit: contain; /* Garante que a imagem inteira seja visível */
+            background-color: #0d0d0d; /* Fundo para as áreas vazias do 'contain' */
             display: block;
             border-bottom: 1px solid var(--border-color);
         }
 
         .game-info {
-            padding: 15px; /* Mais padding */
+            padding: 15px;
             text-align: center;
             flex-grow: 1;
             display: flex;
@@ -140,10 +142,10 @@
         }
 
         .game-info h3 {
-            color: #fff;
+            color: var(--text-light); /* Cor do texto do título do jogo */
             margin-top: 0;
-            margin-bottom: 12px; /* Mais espaço */
-            font-size: 1.25em; /* Fonte do título do jogo maior */
+            margin-bottom: 12px;
+            font-size: 1.25em;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -153,61 +155,61 @@
             display: inline-block;
             background-color: var(--action-blue);
             color: white;
-            padding: 12px 20px; /* Botão maior */
+            padding: 12px 20px;
             text-decoration: none;
-            border-radius: 8px; /* Mais arredondado */
+            border-radius: 8px;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            font-size: 1em; /* Tamanho da fonte normal */
+            font-size: 1em;
             margin-top: auto;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil no botão */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .download-link:hover {
             background-color: var(--action-blue-hover);
-            transform: translateY(-3px); /* Efeito de elevação maior */
+            transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .no-results-message {
             text-align: center;
-            color: #999; /* Cor um pouco mais clara */
-            font-size: 1.2em; /* Mensagem maior */
+            color: var(--secondary-text);
+            font-size: 1.2em;
             margin-top: 40px;
             display: none;
         }
 
         footer {
             text-align: center;
-            padding: 20px 0; /* Mais padding */
-            margin-top: 40px; /* Mais margem superior */
+            padding: 20px 0;
+            margin-top: 40px;
             border-top: 1px solid var(--border-color);
-            color: #888; /* Cor mais suave */
-            font-size: 0.9em; /* Ligeiramente maior */
+            color: var(--footer-text);
+            font-size: 0.9em;
             width: 100%;
         }
 
         footer p {
-            margin: 5px 0; /* Espaçamento entre parágrafos no rodapé */
+            margin: 5px 0;
         }
 
         .credits {
-            color: #b0b0b0; /* Cor para o nome Rafaela */
-            font-weight: bold; /* Deixa o nome em negrito */
-            margin-top: 5px; /* Espaçamento para os créditos */
+            color: var(--credit-text); /* Cor do nome Rafaela (branco puro) */
+            font-weight: bold;
+            margin-top: 5px;
         }
 
         /* Responsividade - Ajustes para a interface maior */
         @media (max-width: 1024px) {
             .container {
-                max-width: 960px; /* Reduz para telas médias */
+                max-width: 960px;
             }
             .game-list {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajusta cards */
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 20px;
             }
             .game-card img {
-                height: 240px; /* Ajusta altura da capa */
+                height: 240px;
             }
         }
 
@@ -216,11 +218,11 @@
                 padding: 15px;
             }
             .game-list {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ainda menores em telas médias */
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 15px;
             }
             .game-card img {
-                height: 180px; /* Ajusta altura da capa */
+                height: 180px;
             }
             h1 {
                 font-size: 2.4em;
@@ -243,11 +245,11 @@
                 padding: 10px;
             }
             .game-list {
-                grid-template-columns: 1fr; /* Coluna única em telas muito pequenas */
+                grid-template-columns: 1fr;
                 gap: 12px;
             }
             .game-card img {
-                height: 160px; /* Ajusta altura da capa */
+                height: 160px;
             }
             h1 {
                 font-size: 2em;
@@ -463,4 +465,33 @@
                     <h3>Dark Souls</h3>
                     <a href="https://www.mediafire.com/file/1ockjov3v644tut" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
                 </div>
-            </
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/07/L.A._Noire_cover.png" alt="L.A. Noire">
+                <div class="game-info">
+                    <h3>L.A. Noire</h3>
+                    <a href="https://gofile.io/d/MxjL7C" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/f/f0/Far_Cry_3_cover_art.jpg" alt="Far Cry 3">
+                <div class="game-info">
+                    <h3>Far Cry 3</h3>
+                    <a href="https://gofile.io/d/nYMjUr" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+        </div> <p class="no-results-message" id="noResultsMessage">Nenhum jogo encontrado com este nome.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Emulation Home</p>
+        <p class="credits">Desenvolvido por Rafaela</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const gameListContainer = document.getElementById('gameList'); // ID re-adicionado aqui
