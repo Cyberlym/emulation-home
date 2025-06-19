@@ -358,12 +358,12 @@
             <!-- Game Card: Just Cause 2 -->
             <div class="game-card" data-name="Just cause 2">
                 <!-- URL mais confiável para Just Cause 2, adicionei placeholders de texto -->
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Just_Cause_2_cover_art.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Just+Cause+2+Imagem';" alt="Capa do Just Cause 2">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Just_Cause_2_cover_art.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Just+Cause+2+Imagem';" alt="https://upload.wikimedia.org/wikipedia/pt/3/3b/Just_Cause_2.jpg">
                 <div class="game-info">
                     <h2>Just Cause 2</h2>
                     <a href="https://buzzheavier.com/wd40jnidba2j" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
+               
+   
 
             <!-- Game Card: Dead Space -->
             <div class="game-card" data-name="Dead space">
@@ -371,20 +371,10 @@
                 <div class="game-info">
                     <h2>Dead Space</h2>
                     <a href="https://buzzheavier.com/qybukhrujnlj" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
+                
+       
 
-            <!-- Game Card: Mortal Kombat Komplete Edition -->
-            <div class="game-card" data-name="Mortal Kombat">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/2/2d/Mortal_Kombat_Komplete_Edition.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Mortal+Kombat+Imagem';" alt="Capa do Mortal Kombat Komplete Edition">
-                <div class="game-info">
-                    <h2>Mortal Kombat Komplete edition</h2>
-                    <a href="https://buzzheavier.com/9klqvyqn0i3e" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
-
-        </div>
-    </main>
+       
 
     <footer class="main-footer">
         <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
@@ -397,4 +387,18 @@
             
             // Função para exibir/ocultar a mensagem "Nenhum resultado"
             function toggleNoResultsMessage(show) {
-                l
+                let noResultsMessage = document.querySelector('.no-results');
+
+                if (show && !noResultsMessage) {
+                    const p = document.createElement('p');
+                    p.classList.add('no-results');
+                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
+                    gameList.appendChild(p);
+                } else if (!show && noResultsMessage) {
+                    noResultsMessage.remove();
+                }
+            }
+
+            // Lógica de pesquisa: filtra os cards de jogo visíveis
+            searchInput.addEventListener('input', (event) => {
+                const searchTerm = event.target.va
