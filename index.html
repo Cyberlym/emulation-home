@@ -55,7 +55,7 @@
         }
 
         .menu-icon {
-            font-size: 2.2em; /* TAMANHO DO ÍCONE DO MENU AUMENTADO */
+            font-size: 2.2em; /* TAMANHO DO ÍCONE DO MENU */
             color: var(--highlight-color); /* Cor do ícone */
             cursor: pointer; /* Indica que é clicável */
             display: none; /* Esconde o ícone em telas grandes (será visível em mobile) */
@@ -64,7 +64,8 @@
         /* Seção Principal "Hero" (Título, Descrição e Barra de Pesquisa) */
         .hero-section {
             text-align: center; /* Centraliza o conteúdo */
-            padding: 40px 20px 50px; /* Preenchimento superior, lateral e inferior ajustado */
+            /* Padding ajustado para compactar a "aba grande" */
+            padding: 30px 20px 40px; /* Reduzido de 40px 20px 50px */
             background: linear-gradient(180deg, var(--background-color) 0%, #2A175B 100%); /* Gradiente de roxos */
             border-bottom: 1px solid var(--border-color); /* Borda inferior */
             box-shadow: 0 4px 15px var(--shadow-color); /* Sombra */
@@ -84,13 +85,13 @@
             font-size: 1.2em; /* Tamanho da fonte da descrição */
             color: var(--text-color); /* Cor da descrição */
             max-width: 700px; /* Largura máxima da descrição */
-            margin: 0 auto 35px; /* Centraliza e adiciona margem abaixo da descrição */
+            margin: 0 auto 30px; /* Margem abaixo da descrição */ /* Reduzido de 35px */
         }
 
         /* Contêiner da Barra de Pesquisa */
         .search-container {
             position: relative; /* Para posicionar o ícone de pesquisa */
-            max-width: 700px; /* Largura máxima da barra */
+            max-width: 600px; /* Reduzido de 700px para compactar mais a barra */
             margin: 0 auto; /* Centraliza a barra */
         }
 
@@ -140,7 +141,7 @@
         /* Contêiner dos Cards de Jogos (grid) */
         .game-grid {
             display: grid; /* Layout de grade para os cards */
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* TAMANHO DOS CARDS AUMENTADO AQUI (de 220px para 280px) */
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tamanho dos cards ligeiramente reduzido (de 280px para 250px) */
             gap: 30px; /* Espaçamento entre os cards */
             width: 100%; /* Ocupa a largura total do contêiner pai */
         }
@@ -170,25 +171,8 @@
 
         .game-card img {
             width: 100%; /* Imagem ocupa 100% da largura do card */
-            height: 350px; /* ALTURA DA CAPA AUMENTADA AQUI (de 280px para 350px) */
-            /*
-             * object-fit: cover; - Este é o modo padrão. Ele faz com que a imagem cubra TODO o espaço
-             * definido (100% de largura, 350px de altura) sem distorcer, mas CORTA a imagem se a
-             * proporção original não for a mesma do espaço.
-             *
-             * Se a imagem do Resident Evil (ou qualquer outra) parecer "menor" ou "cortada estranho",
-             * é porque a imagem ORIGINAL que você está usando tem uma proporção diferente (ex: é mais
-             * larga do que alta, ou tem muito espaço transparente ao redor).
-             *
-             * A MELHOR SOLUÇÃO é encontrar uma imagem de capa diferente para o Resident Evil 6
-             * que tenha uma proporção mais padrão para capas de jogos (mais vertical, menos larga).
-             *
-             * Alternativa: Usar 'object-fit: contain;' (adicione style="object-fit: contain;" na tag <img>
-             * do jogo específico ou mude aqui para todas as imagens). Isso fará com que a imagem
-             * inteira apareça, mas pode deixar barras pretas ou roxas nas laterais se a proporção
-             * não for a mesma do espaço.
-            */
-            object-fit: cover; /* Mantido como cover, mas a OBSERVAÇÃO ACIMA é importante */
+            height: 320px; /* ALTURA DA CAPA AJUSTADA (de 350px para 320px) */
+            object-fit: cover; /* Mantido como cover */
             border-bottom: 1px solid var(--border-color); /* Borda inferior da imagem */
             display: block; /* Remove espaço extra abaixo da imagem em alguns navegadores */
         }
@@ -260,7 +244,7 @@
             }
             .menu-icon {
                 display: block; /* Mostra o ícone de menu hambúrguer */
-                font-size: 3.2em; /* TAMANHO DO ÍCONE AUMENTADO AINDA MAIS (de 2.8em para 3.2em) */
+                font-size: 3.5em; /* TAMANHO DO ÍCONE AUMENTADO AINDA MAIS */
             }
             .hero-section h1 {
                 font-size: 2.5em;
@@ -277,11 +261,11 @@
                 font-size: 1.2em;
             }
             .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* AUMENTADO AQUI (de 180px para 220px) */
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajustado para telas menores */
                 gap: 20px;
             }
             .game-card img {
-                height: 300px; /* AUMENTADO AQUI (de 240px para 300px) */
+                height: 280px; /* Ajustado para telas menores */
             }
             .game-info h2 {
                 font-size: 1.2em;
@@ -295,10 +279,10 @@
             }
             .menu-icon {
                 margin-top: 10px;
-                font-size: 3em; /* AUMENTADO AINDA MAIS (de 2.5em para 3em) */
+                font-size: 3.2em; /* Ajustado para telas muito pequenas */
             }
             .hero-section {
-                padding: 30px 15px;
+                padding: 25px 15px 35px; /* Ajustado para telas muito pequenas */
             }
             .hero-section h1 {
                 font-size: 2em;
@@ -319,7 +303,7 @@
                 margin: 0 auto;
             }
             .game-card img {
-                height: 250px; /* AUMENTADO AQUI (de 200px para 250px) */
+                height: 250px; /* Ajustado para telas muito pequenas */
             }
             .game-info h2 {
                 font-size: 1.1em;
@@ -418,4 +402,27 @@
                         card.style.display = 'flex'; // Mostra o card se corresponder
                         foundResults = true;
                     } else {
-              
+                        card.style.display = 'none'; // Esconde o card
+                    }
+                });
+
+                // Lógica para exibir/remover a mensagem "Nenhum resultado"
+                let noResultsMessage = document.querySelector('.no-results'); 
+
+                if (!foundResults && !noResultsMessage) {
+                    const p = document.createElement('p');
+                    p.classList.add('no-results');
+                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
+                    gameList.appendChild(p);
+                } else if (foundResults && noResultsMessage) {
+                    noResultsMessage.remove();
+                }
+            });
+
+            // Lógica para a mensagem inicial "Nenhum jogo encontrado"
+            // Se não houver cards de jogo no HTML no carregamento inicial, exibe a mensagem.
+            // Removido este bloco porque a página agora tem cards por padrão.
+            /*
+            if (gameCards.length === 0) {
+                const initialNoResultsMessage = document.createElement('p');
+                initialNoResultsMessage.classList.add('no-results'
