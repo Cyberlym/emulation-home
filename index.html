@@ -19,11 +19,12 @@
             --secondary-text: #b0b0b0;
             --footer-text: #888;
             --credit-text-color: #FFFFFF; /* Branco puro para os créditos */
+            --overlay-color: rgba(0, 0, 0, 0.6); /* Cor da sobreposição para a imagem de fundo */
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-dark);
+            background-color: var(--background-dark); /* Cor de fallback caso a imagem não carregue */
             color: var(--text-light);
             margin: 0;
             padding: 0;
@@ -32,6 +33,24 @@
             align-items: center;
             min-height: 100vh;
             box-sizing: border-box;
+
+            /* --- IMAGEM DE FUNDO ADICIONADA AQUI --- */
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOVFGGxVXnymeIKifgnaM3UfyIu93Hxo5qmgobN1744Y1rYi7fdUMczOWbnvsrBmD4Nw5ssaJ2AFwFWbgthkpi7tQbD17hlCpWvmEMRnvCNWgeD05LGTlLK2NjytOSBTIeqFlrAy7fUQw8/w360-h640-rw/cool-wallpaper-1914-1080x1920.png');
+            background-size: cover;       /* Faz a imagem cobrir toda a área */
+            background-position: center;  /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita repetição */
+            background-attachment: fixed; /* Fixa a imagem no fundo enquanto o conteúdo rola */
+        }
+
+        /* Camada de sobreposição para melhorar a legibilidade do texto */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-color);
+            z-index: -1; /* Garante que fique abaixo do conteúdo principal */
         }
 
         .container {
@@ -39,6 +58,8 @@
             max-width: 1200px; /* Interface mais expandida */
             padding: 20px;
             box-sizing: border-box;
+            position: relative; /* Necessário para z-index funcionar */
+            z-index: 1; /* Garante que o conteúdo fique acima do overlay */
         }
 
         header {
@@ -194,7 +215,7 @@
         }
 
         .credits {
-            color: var(--credit-text-color); /* Usando a nova variável para garantir branco puro */
+            color: var(--credit-text-color);
             font-weight: bold;
             margin-top: 5px;
         }
@@ -263,7 +284,7 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="background-overlay"></div> <div class="container">
         <header>
             <h1>Emulation Home</h1>
             <p>Seus jogos para emulação estão aqui.</p>
@@ -274,7 +295,8 @@
             <i class="fas fa-search search-icon"></i>
         </div>
 
-        <div class="game-list" id="gameList"> <div class="game-card">
+        <div class="game-list" id="gameList">
+            <div class="game-card">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/f/f3/Red_Dead_Redemption_capa.png" alt="Red Dead Redemption">
                 <div class="game-info">
                     <h3>Red Dead Redemption</h3>
@@ -382,4 +404,90 @@
                 <img src="https://upload.wikimedia.org/wikipedia/en/9/98/Horizon_Zero_Dawn.jpg" alt="Horizon Zero Dawn">
                 <div class="game-info">
                     <h3>Horizon Zero Dawn</h3>
-                    <a href="
+                    <a href="https://gofile.io/d/WTAuKX" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/Death_Stranding_cover_art.jpg" alt="Death Stranding">
+                <div class="game-info">
+                    <h3>Death Stranding</h3>
+                    <a href="https://gofile.io/d/2YtukV" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Control_video_game_cover_art.jpg" alt="Control">
+                <div class="game-info">
+                    <h3>Control</h3>
+                    <a href="https://gofile.io/d/7fjqpT" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://geekgamer-capas.nyc3.cdn.digitaloceanspaces.com/9ax8ia4n.jpg" alt="Fears to Fathom - Woodbury Getaway">
+                <div class="game-info">
+                    <h3>Fears to Fathom - Woodbury Getaway</h3>
+                    <a href="https://www.mediafire.com/file/eqbkqkc2v5aohxn/Fears.to.Fathom.Woodbury.Getaway.v1.4.7z/file" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/b2/Mass_Effect_2_cover.png" alt="Mass Effect 2">
+                <div class="game-info">
+                    <h3>Mass Effect 2</h3>
+                    <a href="https://www.swiftuploads.com/5pVzNPgpm7wv/file" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Skyrim_cover.jpg" alt="The Elder Scrolls V: Skyrim">
+                <div class="game-info">
+                    <h3>The Elder Scrolls V: Skyrim</h3>
+                    <a href="https://gofile.io/d/vkdFpe" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/cb/Portal_2_cover_art.jpg" alt="Portal 2">
+                <div class="game-info">
+                    <h3>Portal 2</h3>
+                    <a href="https://gofile.io/d/3Fh5Ex" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/dc/Batman_Arkham_City_cover_art.jpg" alt="Batman: Arkham City">
+                <div class="game-info">
+                    <h3>Batman: Arkham City</h3>
+                    <a href="https://gofile.io/d/sMc1Qa" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/22/Bioshock_Infinite_cover.png" alt="BioShock Infinite">
+                <div class="game-info">
+                    <h3>BioShock Infinite</h3>
+                    <a href="https://gofile.io/d/K5Mfys" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/1/18/Fallout_3_cover_art.jpg" alt="Fallout 3">
+                <div class="game-info">
+                    <h3>Fallout 3</h3>
+                    <a href="https://buzzheavier.com/bnt5ra5sxho0" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/ca/Dark_Souls_Cover_Art.jpg" alt="Dark Souls">
+                <div class="game-info">
+                    <h3>Dark Souls</h3>
+                    <a href="https://www.mediafire.com/file/1ockjov3v644tut" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/07/L.A._Noire_cover.png" alt="L.A. Noire">
+                <di
