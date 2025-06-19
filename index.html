@@ -19,7 +19,7 @@
             --highlight-color: #D37AFF; /* Roxo mais claro para destaque, ícones e bordas de foco */
             --input-bg-color: #4A2B86; /* Fundo da busca roxo mais claro */
             --input-text-color: #E0E0FF;
-            --border-color: #5E35B1; /* Cor para bordas sutis */
+            --border-color: #5E35B1; /* Borda sutil */
             --shadow-color: rgba(0, 0, 0, 0.5); /* Cor base para sombras */
             --button-bg-color: #6200EE; /* Roxo mais escuro para botões */
             --button-hover-color: #9C27B0; /* Roxo mais claro para hover do botão */
@@ -218,7 +218,7 @@
             grid-column: 1 / -1; /* Ocupa todas as colunas no grid para centralizar */
         }
 
-        /* Estilos do Rodapé */
+        /* Footer */
         .main-footer {
             background-color: var(--card-background-color); /* Cor de fundo do rodapé */
             color: var(--text-color); /* Cor do texto do rodapé */
@@ -307,7 +307,6 @@
 <body>
     <header class="main-header">
         <div class="logo">Emulation Home</div>
-        <!-- Ícone de menu hambúrguer - pode ser implementado com JavaScript se quiser um menu responsivo -->
         <i class="fas fa-bars menu-icon"></i>
     </header>
 
@@ -323,96 +322,94 @@
     <main class="game-section">
         <div class="game-grid" id="gameList">
             <!-- 
-                 Lista de Jogos de PC Adicionados.
-                 Cada jogo é um 'div' com a classe 'game-card' para o estilo.
-                 O atributo 'data-name' é usado pelo JavaScript para a funcionalidade de pesquisa.
-                 A URL da capa (src) aponta para o seu próprio repositório GitHub (assets/covers/).
-                 Certifique-se de que as imagens correspondentes estejam na pasta 'assets/covers/'
-                 do seu repositório com os nomes de arquivo corretos.
-                 Cada jogo agora inclui um link de placeholder para download ('game-download-link').
-                 Você deve substituir o 'href="#"' por seus links reais.
+                 NOVO JOGO DE PLACEHOLDER ADICIONADO AQUI.
+                 Você pode copiar este bloco '<div class="game-card" ...>...</div>'
+                 para adicionar mais jogos, um abaixo do outro.
+                 Lembre-se de ATUALIZAR:
+                 1. 'data-name' no 'div.game-card' (usado para pesquisa).
+                 2. 'src' e 'alt' na tag 'img' (URL da capa e texto alternativo).
+                 3. O texto dentro da tag 'h2' (o nome do jogo visível).
+                 4. O 'href' no 'a.game-download-link' com o seu link real de download.
             -->
-
-            <!-- Jogo 1: Red Dead Redemption -->
-            <div class="game-card" data-name="Red Dead Redemption">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/red_dead_redemption.jpg" alt="Red Dead Redemption Cover">
+            <div class="game card" data-name="GTA 5">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" alt="GTA V">
                 <div class="game-info">
-                    <h2>Red Dead Redemption</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a> 
+                    <h2>Grand Theft Auto 5</h2>
+                    <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="game-download-link" target="_blank">Baixar Jogo</a> 
+                </div>
+            </div>
+<div class="game card" data-name="GTA 4">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/9/91/Grand_Theft_Auto_IV_capa.png" alt="GTA 4">
+                <div class="game-info">
+                    <h2>Grand Theft Auto IV</h2>
+                    <a href="https://drive.usercontent.google.com/download?id=1AVQ147kGKcArqqwZvdIL_wY-6uZ8xs3X&export=download&authuser=0"game-download-link" target="_blank">Baixar Jogo</a> 
                 </div>
             </div>
 
-            <!-- Jogo 2: Grand Theft Auto V -->
-            <div class="game-card" data-name="Grand Theft Auto V">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/gta_v.jpg" alt="Grand Theft Auto V Cover">
+<div class="game card" data-name="Resident evil 6">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" alt="Resident evil 6">
                 <div class="game-info">
-                    <h2>Grand Theft Auto V</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                    <h2>Resident evil 6</h2>
+                    <a href="https://buzzheavier.com/uww3eogkg4ar"game-download-link" target="_blank">Baixar Jogo</a> 
                 </div>
             </div>
 
-            <!-- Jogo 3: Tomb Raider (2013) -->
-            <div class="game-card" data-name="Tomb Raider 2013">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/tomb_raider_2013.jpg" alt="Tomb Raider (2013) Cover">
+<div class="game card" data-name="Cuphead">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/c/c1/Cuphead_capa.png" alt="Cuphead">
                 <div class="game-info">
-                    <h2>Tomb Raider (2013)</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                    <h2>Cuphead</h2>
+                    <a href="https://gofile.io/d/jzaTbm"game-download-link" target="_blank">Baixar Jogo</a> 
                 </div>
             </div>
 
-            <!-- Jogo 4: Rise of the Tomb Raider -->
-            <div class="game-card" data-name="Rise of the Tomb Raider">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/rise_of_the_tomb_raider.jpg" alt="Rise of the Tomb Raider Cover">
-                <div class="game-info">
-                    <h2>Rise of the Tomb Raider</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
 
-            <!-- Jogo 5: Metal Gear Solid V The Phantom Pain -->
-            <div class="game-card" data-name="Metal Gear Solid V The Phantom Pain">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/metal_gear_solid_v.jpg" alt="Metal Gear Solid V: The Phantom Pain Cover">
-                <div class="game-info">
-                    <h2>Metal Gear Solid V: The Phantom Pain</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
 
-            <!-- Jogo 6: The Witcher 3 Wild Hunt -->
-            <div class="game-card" data-name="The Witcher 3 Wild Hunt">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/the_witcher_3.jpg" alt="The Witcher 3: Wild Hunt Cover">
-                <div class="game-info">
-                    <h2>The Witcher 3: Wild Hunt</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
+            <!-- Adicione mais jogos aqui, copiando e colando o bloco acima -->
 
-            <!-- Jogo 7: Fallout 4 -->
-            <div class="game-card" data-name="Fallout 4">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/fallout_4.jpg" alt="Fallout 4 Cover">
-                <div class="game-info">
-                    <h2>Fallout 4</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
+        </div>
+    </main>
 
-            <!-- Jogo 8: Dark Souls III -->
-            <div class="game-card" data-name="Dark Souls III">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/dark_souls_iii.jpg" alt="Dark Souls III Cover">
-                <div class="game-info">
-                    <h2>Dark Souls III</h2>
-                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
-                    <a href="https://gofile.io/d/78ooEM" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
+    <footer class="main-footer">
+        <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
+    </footer>
 
-            <!-- Jogo 9: Dishonored 2 -->
-            <div class="game-card" data-name="Dishonored 2">
-                <i
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const gameList = document.getElementById('gameList'); // A div que contém os cards
+            const gameCards = document.querySelectorAll('.game-card'); // Todos os cards de jogo
+
+            // Lógica de pesquisa: filtra os cards de jogo visíveis
+            searchInput.addEventListener('input', (event) => {
+                const searchTerm = event.target.value.toLowerCase();
+                let foundResults = false;
+
+                gameCards.forEach(card => {
+                    // Pega o nome do jogo do atributo data-name e converte para minúsculas
+                    const gameName = card.getAttribute('data-name').toLowerCase();
+                    if (gameName.includes(searchTerm)) {
+                        card.style.display = 'flex'; // Mostra o card se corresponder
+                        foundResults = true;
+                    } else {
+                        card.style.display = 'none'; // Esconde o card
+                    }
+                });
+
+                // Lógica para a mensagem "Nenhum resultado"
+                let noResultsMessage = document.querySelector('.no-results'); // Procura por uma mensagem existente
+
+                if (!foundResults && !noResultsMessage) {
+                    // Se não encontrou resultados e não há mensagem, cria uma
+                    const p = document.createElement('p');
+                    p.classList.add('no-results');
+                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
+                    gameList.appendChild(p); // Adiciona a mensagem dentro do gameList
+                } else if (foundResults && noResultsMessage) {
+                    // Se encontrou resultados e há uma mensagem, remove-a
+                    noResultsMessage.remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
