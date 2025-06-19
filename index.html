@@ -344,34 +344,24 @@
                     <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
+            
+            <!-- Os jogos abaixo foram removidos conforme sua solicitação -->
+            <!-- Five Nights at Freddy's: Secret of the Mimic -->
+            <!-- Just Cause 2 -->
+            <!-- Dead Space -->
+            <!-- Mortal Kombat Komplete Edition -->
 
-            <!-- Game Card: Five Nights at Freddy's: Secret of the Mimic -->
-            <div class="game-card" data-name="Fnaf mimic">
-                <!-- URL mais confiável para FNAF Mimic, adicionei placeholders de texto -->
-                <img src="https://m.media-amazon.com/images/I/71R2c833XHL._AC_UF894,1000_QL80_.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=FNAF+Mimic+Imagem';" alt="Capa do Five Nights at Freddy's: Secret of the Mimic">
+                    <!-- Começo do Bloco para um Novo Jogo -->
+            <div class="game-card" data-name="Five nights at Freddy's Secret of The mimic">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXCd73YMscZ4dyfrD-pFBOtR8nLoMocITAbQ3GDmxP48KK5Np1zANmL4&s=10" alt="Fnaf sotm">
                 <div class="game-info">
-                    <h2>Five Nights at Freddy's: Secret of the Mimic</h2>
+                    <h2>Five nights at Freddy's Secrets oF The mímic</h2>
                     <a href="https://gofile.io/d/Yt2mRo" class="game-download-link" target="_blank">Baixar Jogo</a>
-               
+                </div>
+            </div>
+            <!-- Fim do Bloco para um Novo Jogo -->
 
-            <!-- Game Card: Just Cause 2 -->
-            <div class="game-card" data-name="Just cause 2">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Just_Cause_2_cover_art.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Just+Cause+2+Imagem';" alt="https://upload.wikimedia.org/wikipedia/pt/3/3b/Just_Cause_2.jpg">
-                <div class="game-info">
-                    <h2>Just Cause 2</h2>
-                    <a href="https://buzzheavier.com/wd40jnidba2j" class="game-download-link" target="_blank">Baixar Jogo</a>
-              
-
-            <!-- Game Card: Dead Space -->
-            <div class="game-card" data-name="Dead space">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/3/35/Dead_Space_capa.png" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Dead+Space+Imagem';" alt="Capa do Dead Space">
-                <div class="game-info">
-                    <h2>Dead Space</h2>
-                    <a href="https://buzzheavier.com/qybukhrujnlj" class="game-download-link" target="_blank">Baixar Jogo</a>
-                
-       
-
-       
+    </main>
 
     <footer class="main-footer">
         <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
@@ -401,4 +391,22 @@
                 const searchTerm = event.target.value.toLowerCase().trim();
                 let foundResults = false;
 
-                // RE-SELECIONA TODOS OS CARDS A CADA VEZ
+                // RE-SELECIONA TODOS OS CARDS A CADA VEZ QUE O USUÁRIO DIGITA
+                // Isso garante que estamos sempre trabalhando com a lista mais atualizada de cards no DOM.
+                const currentGameCards = document.querySelectorAll('.game-card'); 
+
+                // Se não houver cards e o termo de busca estiver vazio, não mostra a mensagem de "nenhum resultado"
+                if (currentGameCards.length === 0 && searchTerm === '') {
+                    toggleNoResultsMessage(false);
+                    return; // Sai da função
+                }
+
+                currentGameCards.forEach(card => {
+                    const gameName = card.getAttribute('data-name').toLowerCase();
+                    
+                    // Verifica se o nome do jogo INCLUI o termo de busca
+                    if (gameName.includes(searchTerm)) {
+                        card.style.display = 'flex'; // Mostra o card
+                        foundResults = true;
+                    } else {
+                        card.style.display
