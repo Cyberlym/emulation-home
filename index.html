@@ -342,24 +342,20 @@
                 <div class="game-info">
                     <h2>Cuphead</h2>
                     <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a>
-                </div>
-            </div>
-            
-            <!-- Os jogos abaixo foram removidos conforme sua solicitação -->
-            <!-- Five Nights at Freddy's: Secret of the Mimic -->
-            <!-- Just Cause 2 -->
-            <!-- Dead Space -->
-            <!-- Mortal Kombat Komplete Edition -->
 
-                    <!-- Começo do Bloco para um Novo Jogo -->
-            <div class="game-card" data-name="Five nights at Freddy's Secret of The mimic">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXCd73YMscZ4dyfrD-pFBOtR8nLoMocITAbQ3GDmxP48KK5Np1zANmL4&s=10" alt="Fnaf sotm">
+               <div class="game-card" data-name="Five Nights at Freddy's The Mimic">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/31027c39-3f0b-433c-9f69-7ccec5048782/dgcl2p0-58843e91-16e1-4328-8b9a-9d970e515f20.png/v1/fill/w_894,h_894,q_70,strp/the_mimic___fnaf_ruin__fan_poster__by_goofyfroggo_dgcl2p0-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiJcL2ZcLzMxMDI3YzM5LTNmMGMtNDMzYy05ZjY5LTdjY2VjNTA0ODc4MlwvZGdjbDJwMC01ODg0M2U5MS0xNmUxLTQzMjgtOGI5YS05ZDk3MGU1MTVmMjAucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.YtDCRzCwrpC5_1Xp_Y2F8gJLGh-3_gMsw2jS9HqWIOo" alt="Capa do jogo The Mimic de Five Nights at Freddy's">
                 <div class="game-info">
-                    <h2>Five nights at Freddy's Secrets oF The mímic</h2>
+                    <h2>FNAF - The Mimic</h2>
                     <a href="https://gofile.io/d/Yt2mRo" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
-            <!-- Fim do Bloco para um Novo Jogo -->
+            ```
+
+Fazendo essa substituição, a imagem do "MIMIC" vai se alinhar perfeitamente em altura e proporção com as outras capas de jogos, e o resultado final ficará assim:
+
+![Prévia da correção da imagem do Mimic](https://i.imgur.com/1B9qR4r.png)
+                
 
     </main>
 
@@ -391,8 +387,7 @@
                 const searchTerm = event.target.value.toLowerCase().trim();
                 let foundResults = false;
 
-                // RE-SELECIONA TODOS OS CARDS A CADA VEZ QUE O USUÁRIO DIGITA
-                // Isso garante que estamos sempre trabalhando com a lista mais atualizada de cards no DOM.
+               
                 const currentGameCards = document.querySelectorAll('.game-card'); 
 
                 // Se não houver cards e o termo de busca estiver vazio, não mostra a mensagem de "nenhum resultado"
@@ -404,9 +399,4 @@
                 currentGameCards.forEach(card => {
                     const gameName = card.getAttribute('data-name').toLowerCase();
                     
-                    // Verifica se o nome do jogo INCLUI o termo de busca
-                    if (gameName.includes(searchTerm)) {
-                        card.style.display = 'flex'; // Mostra o card
-                        foundResults = true;
-                    } else {
-                        card.style.display
+                    // Verifica se o nome do jogo I
