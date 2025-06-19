@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emulation Home</title>
-    <!-- Inclui a biblioteca Font Awesome para ícones (como a lupa da pesquisa e o menu hambúrguer) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /*
-         * Seção de Variáveis CSS (Tema Dark Roxo)
+         * Seção de Variáveis CSS (Tema Dark Roxo - Oled Preto)
          * Aqui definimos as cores que serão usadas em toda a interface para facilitar a modificação.
          */
         :root {
-            --background-color: #1A0D3B; /* Roxo muito escuro, quase preto, para o fundo geral */
-            --card-background-color: #2F1E5E; /* Roxo escuro para os fundos dos cards e footer/header */
+            --background-color: #000000; /* Preto puro para o fundo geral (OLED) */
+            --card-background-color: #1A0033; /* Roxo muito escuro, quase preto, para os fundos dos cards */
             --text-color: #E0E0FF; /* Cor principal do texto (roxo claro/branco) */
-            --header-text-color: #A742F7; /* Roxo vibrante para títulos e logo */
-            --highlight-color: #D37AFF; /* Roxo mais claro para destaque, ícones e bordas de foco */
-            --input-bg-color: #4A2B86; /* Fundo da busca roxo mais claro */
+            --header-text-color: #A020F0; /* Roxo vibrante para títulos e logo */
+            --highlight-color: #9C27B0; /* Roxo mais escuro para destaque e bordas de foco */
+            --input-bg-color: #330066; /* Fundo da busca roxo mais escuro */
             --input-text-color: #E0E0FF;
             --border-color: #5E35B1; /* Borda sutil */
-            --shadow-color: rgba(0, 0, 0, 0.5); /* Cor base para sombras */
-            --button-bg-color: #6200EE; /* Roxo mais escuro para botões */
-            --button-hover-color: #9C27B0; /* Roxo mais claro para hover do botão */
+            --shadow-color: rgba(0, 0, 0, 0.7); /* Cor base para sombras mais intensas no preto */
+            --button-bg-color: #7B1FA2; /* Roxo mais escuro para botões */
+            --button-hover-color: #AF52DE; /* Roxo mais claro para hover do botão */
         }
 
         /* Estilos Globais para o Corpo da Página */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
-            background-color: var(--background-color); /* Aplica a cor de fundo definida */
+            background-color: var(--background-color); /* Aplica a cor de fundo definida (Preto OLED) */
             color: var(--text-color); /* Aplica a cor do texto padrão */
             margin: 0; /* Remove margens padrão do navegador */
             padding: 0; /* Remove preenchimento padrão do navegador */
@@ -38,10 +37,10 @@
 
         /* Estilos do Cabeçalho Principal */
         .main-header {
-            background-color: var(--background-color); /* Fundo do cabeçalho */
-            padding: 20px 40px; /* Preenchimento interno */
-            display: flex; /* Usa flexbox para alinhar logo e menu */
-            justify-content: space-between; /* Espaça logo e menu */
+            background-color: var(--background-color); /* Fundo do cabeçalho (Preto OLED) */
+            padding: 15px 40px; /* Preenchimento interno ajustado para ser mais compacto */
+            display: flex; /* Usa flexbox para alinhar logo */
+            justify-content: center; /* Centraliza o logo (já que o menu foi removido) */
             align-items: center; /* Alinha verticalmente */
             border-bottom: 1px solid var(--border-color); /* Borda inferior sutil */
             box-shadow: 0 2px 8px var(--shadow-color); /* Sombra para profundidade */
@@ -50,23 +49,17 @@
         .logo {
             font-size: 2.2em; /* Tamanho do texto do logo */
             font-weight: bold; /* Negrito */
-            color: var(--header-text-color); /* Cor do logo */
-            text-shadow: 0 0 15px rgba(211, 122, 255, 0.5); /* Efeito de brilho */
+            color: var(--header-text-color); /* Cor do logo (Roxo Vibrante) */
+            text-shadow: 0 0 15px rgba(160, 32, 240, 0.6); /* Efeito de brilho roxo mais intenso */
         }
 
-        .menu-icon {
-            font-size: 2.2em; /* TAMANHO DO ÍCONE DO MENU */
-            color: var(--highlight-color); /* Cor do ícone */
-            cursor: pointer; /* Indica que é clicável */
-            display: none; /* Esconde o ícone em telas grandes (será visível em mobile) */
-        }
+        /* A regra .menu-icon foi removida, pois o elemento foi excluído do HTML */
 
         /* Seção Principal "Hero" (Título, Descrição e Barra de Pesquisa) */
         .hero-section {
             text-align: center; /* Centraliza o conteúdo */
-            /* Padding ajustado para compactar a "aba grande" */
             padding: 30px 20px 40px; /* Reduzido de 40px 20px 50px */
-            background: linear-gradient(180deg, var(--background-color) 0%, #2A175B 100%); /* Gradiente de roxos */
+            background: linear-gradient(180deg, var(--background-color) 0%, #1A0033 100%); /* Gradiente de roxos escuros para preto */
             border-bottom: 1px solid var(--border-color); /* Borda inferior */
             box-shadow: 0 4px 15px var(--shadow-color); /* Sombra */
             margin-top: -20px; /* Puxa a seção um pouco para cima para compactar o topo */
@@ -76,16 +69,16 @@
 
         .hero-section h1 {
             font-size: 3em; /* Tamanho do título principal */
-            color: var(--header-text-color); /* Cor do título */
+            color: var(--header-text-color); /* Cor do título (Roxo Vibrante) */
             margin-bottom: 8px; /* Margem abaixo do título */
-            text-shadow: 0 0 20px rgba(211, 122, 255, 0.7); /* Brilho no título */
+            text-shadow: 0 0 20px rgba(160, 32, 240, 0.8); /* Brilho roxo no título */
         }
 
         .hero-section p {
             font-size: 1.2em; /* Tamanho da fonte da descrição */
             color: var(--text-color); /* Cor da descrição */
             max-width: 700px; /* Largura máxima da descrição */
-            margin: 0 auto 30px; /* Margem abaixo da descrição */ /* Reduzido de 35px */
+            margin: 0 auto 30px; /* Margem abaixo da descrição */
         }
 
         /* Contêiner da Barra de Pesquisa */
@@ -100,21 +93,21 @@
             padding: 15px 50px 15px 25px; /* Preenchimento interno (direita maior para o ícone) */
             border: 2px solid var(--border-color); /* Borda */
             border-radius: 30px; /* Bordas arredondadas (pill shape) */
-            background-color: var(--input-bg-color); /* Fundo da barra */
+            background-color: var(--input-bg-color); /* Fundo da barra (Roxo mais escuro) */
             color: var(--input-text-color); /* Cor do texto digitado */
             font-size: 1.1em; /* Tamanho da fonte */
             outline: none; /* Remove a borda de foco padrão do navegador */
             transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para foco */
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra interna para profundidade */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4); /* Sombra interna para profundidade */
         }
 
         .search-input::placeholder {
-            color: #AF8EEA; /* Cor do texto do placeholder */
+            color: #C080E0; /* Cor do texto do placeholder (roxo claro) */
         }
 
         .search-input:focus {
-            border-color: var(--highlight-color); /* Muda a cor da borda ao focar */
-            box-shadow: 0 0 15px rgba(211, 122, 255, 0.6); /* Adiciona brilho ao focar */
+            border-color: var(--highlight-color); /* Muda a cor da borda ao focar (Roxo de destaque) */
+            box-shadow: 0 0 15px rgba(156, 39, 176, 0.8); /* Adiciona brilho roxo ao focar */
         }
 
         .search-icon {
@@ -122,7 +115,7 @@
             right: 20px; /* Distância da direita */
             top: 50%; /* Centraliza verticalmente */
             transform: translateY(-50%); /* Ajusta a centralização vertical exata */
-            color: var(--highlight-color); /* Cor do ícone */
+            color: var(--highlight-color); /* Cor do ícone (Roxo de destaque) */
             font-size: 1.3em; /* Tamanho do ícone */
         }
 
@@ -148,12 +141,11 @@
 
         /* Estilos para cada Card de Jogo */
         .game-card {
-            background-color: var(--card-background-color); /* Fundo do card */
+            background-color: var(--card-background-color); /* Fundo do card (Roxo muito escuro) */
             border-radius: 12px; /* Cantos arredondados */
             overflow: hidden; /* Garante que nada saia dos limites do card */
             box-shadow: 0 8px 20px var(--shadow-color); /* Sombra do card */
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave no hover */
-            /* Garante que os cards estejam visíveis por padrão */
             display: flex; /* MANTIDO COMO FLEX POR PADRÃO */
             flex-direction: column; /* Organiza a imagem, título e botão em coluna */
             justify-content: space-between; /* Espaça conteúdo verticalmente */
@@ -162,8 +154,8 @@
 
         .game-card:hover {
             transform: translateY(-10px); /* Efeito de "levantar" no hover */
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7); /* Sombra mais intensa no hover */
-            border-color: var(--highlight-color); /* Muda a cor da borda no hover */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8); /* Sombra mais intensa no hover */
+            border-color: var(--highlight-color); /* Muda a cor da borda no hover (Roxo de destaque) */
         }
 
         .game-card img {
@@ -186,7 +178,7 @@
         .game-info h2 {
             font-size: 1.3em; /* Tamanho do título do jogo */
             margin: 0 0 10px; /* Margens */
-            color: var(--highlight-color); /* Cor do título do jogo */
+            color: var(--highlight-color); /* Cor do título do jogo (Roxo de destaque) */
             white-space: nowrap; /* Impede quebra de linha */
             overflow: hidden; /* Oculta texto que excede a largura */
             text-overflow: ellipsis; /* Adiciona "..." para texto oculto */
@@ -195,7 +187,7 @@
         /* Estilo para o botão/link de "Baixar" */
         .game-download-link {
             display: block; /* Ocupa a largura total */
-            background-color: var(--button-bg-color); /* Cor de fundo do botão */
+            background-color: var(--button-bg-color); /* Cor de fundo do botão (Roxo mais escuro) */
             color: white; /* Cor do texto do botão */
             padding: 12px 20px; /* Preenchimento interno */
             border-radius: 8px; /* Cantos arredondados */
@@ -203,11 +195,11 @@
             font-weight: bold; /* Negrito */
             margin-top: 15px; /* Margem superior para separar do título do jogo */
             transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave no hover */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra para profundidade */
         }
 
         .game-download-link:hover {
-            background-color: var(--button-hover-color); /* Cor de fundo mais clara no hover */
+            background-color: var(--button-hover-color); /* Cor de fundo mais clara no hover (Roxo mais claro) */
             transform: translateY(-2px); /* Efeito de "levantar" sutil */
         }
 
@@ -222,7 +214,7 @@
 
         /* Footer */
         .main-footer {
-            background-color: var(--card-background-color); /* Cor de fundo do rodapé */
+            background-color: var(--card-background-color); /* Cor de fundo do rodapé (Roxo muito escuro) */
             color: var(--text-color); /* Cor do texto do rodapé */
             text-align: center; /* Centraliza o texto */
             padding: 25px; /* Preenchimento interno */
@@ -239,10 +231,7 @@
             .logo {
                 font-size: 1.8em;
             }
-            .menu-icon {
-                display: block; /* Mostra o ícone de menu hambúrguer */
-                font-size: 3.5em; /* TAMANHO DO ÍCONE AUMENTADO */
-            }
+            /* .menu-icon foi removido */
             .hero-section h1 {
                 font-size: 2.5em;
             }
@@ -272,12 +261,9 @@
         @media (max-width: 480px) {
             .main-header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: flex-start; /* Alinhe à esquerda, mas ainda centralizado por just-content: center */
             }
-            .menu-icon {
-                margin-top: 10px;
-                font-size: 3.2em; /* Ajustado para telas muito pequenas */
-            }
+            /* .menu-icon foi removido */
             .hero-section {
                 padding: 25px 15px 35px; /* Ajustado para telas muito pequenas */
             }
@@ -311,8 +297,7 @@
 <body>
     <header class="main-header">
         <div class="logo">Emulation Home</div>
-        <i class="fas fa-bars menu-icon"></i>
-    </header>
+        </header>
 
     <section class="hero-section">
         <h1>Jogos de PC</h1>
@@ -325,45 +310,38 @@
 
     <main class="game-section">
         <div class="game-grid" id="gameList">
-            <!-- Jogo: GTA 5 -->
             <div class="game-card" data-name="GTA 5">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" alt="GTA V">
                 <div class="game-info">
                     <h2>Grand Theft Auto 5</h2>
-                    <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="game-download-link" target="_blank">Baixar Jogo</a> 
+                    <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
-            <!-- Jogo: GTA 4 -->
             <div class="game-card" data-name="GTA 4">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/9/91/Grand_Theft_Auto_IV_capa.png" alt="GTA 4">
                 <div class="game-info">
                     <h2>Grand Theft Auto IV</h2>
-                    <a href="https://drive.usercontent.google.com/download?id=1AVQ147kGKcArqqwZvdIL_wY-6uZ8xs3X&export=download&authuser=0" class="game-download-link" target="_blank">Baixar Jogo</a> 
+                    <a href="https://drive.usercontent.google.com/download?id=1AVQ147kGKcArqqwZvdIL_wY-6uZ8xs3X&export=download&authuser=0" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
-            <!-- Jogo: Resident Evil 6 -->
             <div class="game-card" data-name="Resident evil 6">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" alt="Resident evil 6">
                 <div class="game-info">
                     <h2>Resident evil 6</h2>
-                    <a href="https://buzzheavier.com/uww3eogkg4ar" class="game-download-link" target="_blank">Baixar Jogo</a> 
+                    <a href="https://buzzheavier.com/uww3eogkg4ar" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
-            <!-- Jogo: Cuphead -->
             <div class="game-card" data-name="Cuphead">
                 <img src="https://upload.wikimedia.org/wikipedia/pt/c/c1/Cuphead_capa.png" alt="Cuphead">
                 <div class="game-info">
                     <h2>Cuphead</h2>
-                    <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a> 
+                    <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
-            <!-- Adicione mais jogos aqui, copiando e colando um dos blocos acima
-                 e alterando o 'data-name', 'src' da imagem, o 'h2' e o 'href'. -->
-
-        </div>
+            </div>
     </main>
 
     <footer class="main-footer">
@@ -373,8 +351,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
-            const gameList = document.getElementById('gameList'); 
-            const gameCards = document.querySelectorAll('.game-card'); // Agora, deve selecionar corretamente
+            const gameList = document.getElementById('gameList');
+            const gameCards = document.querySelectorAll('.game-card');
 
             // Verifica se há cards de jogo no carregamento inicial
             // Se não houver, exibe a mensagem "Nenhum jogo encontrado".
@@ -384,7 +362,6 @@
                 initialNoResultsMessage.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
                 gameList.appendChild(initialNoResultsMessage);
             }
-
 
             // Lógica de pesquisa: filtra os cards de jogo visíveis
             searchInput.addEventListener('input', (event) => {
@@ -402,7 +379,7 @@
                 });
 
                 // Lógica para exibir/remover a mensagem "Nenhum resultado"
-                let noResultsMessage = document.querySelector('.no-results'); 
+                let noResultsMessage = document.querySelector('.no-results');
 
                 if (!foundResults && !noResultsMessage) {
                     const p = document.createElement('p');
