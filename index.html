@@ -297,4 +297,119 @@
     </header>
 
     <section class="hero-section">
-        <h1>Sua Biblioteca
+        <h1>Jogos de PC</h1>
+        <p>Todos os jogos para emulação estão aqui. Encontre seus clássicos favoritos e novas aventuras.</p>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por um jogo...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </section>
+
+    <main class="game-section">
+        <h2 class="section-title">Jogos Emulados</h2>
+        <div class="game-grid" id="gameList">
+            <div class="game-card" data-name="Elden Ring">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/elden_ring.jpg" alt="Elden Ring Cover">
+                <div class="game-info">
+                    <h2>Elden Ring</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="Resident Evil 4 Remake">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/resident_evil_4.jpg" alt="Resident Evil 4 Remake Cover">
+                <div class="game-info">
+                    <h2>Resident Evil 4 Remake</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="Cyberpunk 2077">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/cyberpunk_2077.jpg" alt="Cyberpunk 2077 Cover">
+                <div class="game-info">
+                    <h2>Cyberpunk 2077</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="Horizon Zero Dawn">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/horizon_zero_dawn.jpg" alt="Horizon Zero Dawn Cover">
+                <div class="game-info">
+                    <h2>Horizon Zero Dawn</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="God of War Ragnarok">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/god_of_war_ragnarok.jpg" alt="God of War: Ragnarök Cover">
+                <div class="game-info">
+                    <h2>God of War: Ragnarök</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="Spider-Man Miles Morales">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/spiderman_miles_morales.jpg" alt="Spider-Man Miles Morales Cover">
+                <div class="game-info">
+                    <h2>Spider-Man: Miles Morales</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="The Legend of Zelda Ocarina of Time">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/ocarina_of_time.jpg" alt="The Legend of Zelda: Ocarina of Time Cover">
+                <div class="game-info">
+                    <h2>The Legend of Zelda: Ocarina of Time</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="Super Mario 64">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/super_mario_64.jpg" alt="Super Mario 64 Cover">
+                <div class="game-info">
+                    <h2>Super Mario 64</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="Pokemon Yellow">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/pokemon_yellow.jpg" alt="Pokémon Yellow Cover">
+                <div class="game-info">
+                    <h2>Pokémon Yellow</h2>
+                </div>
+            </div>
+            <div class="game-card" data-name="Metroid Prime">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/metroid_prime.jpg" alt="Metroid Prime Cover">
+                <div class="game-info">
+                    <h2>Metroid Prime</h2>
+                </div>
+            </div>
+            </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const gameList = document.getElementById('gameList'); // A div que contém os cards
+            const gameCards = document.querySelectorAll('.game-card'); // Todos os cards de jogo
+
+            searchInput.addEventListener('input', (event) => {
+                const searchTerm = event.target.value.toLowerCase();
+                let foundResults = false;
+
+                gameCards.forEach(card => {
+                    // Pega o nome do jogo do atributo data-name e converte para minúsculas
+                    const gameName = card.getAttribute('data-name').toLowerCase();
+                    if (gameName.includes(searchTerm)) {
+                        card.style.display = 'flex'; // Mostra o card se corresponder
+                        foundResults = true;
+                    } else {
+                        card.style.display = 'none'; // Esconde o card
+                    }
+                });
+
+                // Lógica para a mensagem "Nenhum resultado"
+                let noResultsMessage = document.querySelector('.no-results'); // Procura por uma mensagem existente
+                if (!foundResults && !noResultsMessage) {
+                    // Se não encontrou resultados e não há mensagem, cria uma
+                    const p = document.createElement('p');
+                    p.classList.add('no-results');
+                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
+                    gameList.appendChild(p); // Adiciona a mensagem dentro do gameList
+                } else if (foundResults && noResultsMessage) {
+                    // Se encontrou resultados e há uma mensagem, remove-a
+                    noResultsMessage.remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
