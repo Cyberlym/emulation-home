@@ -53,19 +53,22 @@
             display: none; /* Esconde em telas grandes */
         }
 
-        /* Hero Section (Área principal abaixo do header) */
+        /* Hero Section (Área principal, mais compacta e centralizada) */
         .hero-section {
             text-align: center;
-            padding: 50px 20px;
+            /* Reduzido o padding superior e inferior para compactar */
+            padding: 40px 20px 40px; /* Um pouco mais de padding inferior para a search bar */
             background: linear-gradient(180deg, var(--background-color) 0%, #2A175B 100%);
             border-bottom: 1px solid var(--border-color);
             box-shadow: 0 4px 15px var(--shadow-color);
+            /* Ajusta a margem para mover para cima, se necessário, ou padding negativo */
+            margin-top: -20px; /* Exemplo: Puxa a seção um pouco para cima */
         }
 
         .hero-section h1 {
             font-size: 3em;
             color: var(--header-text-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* Margem menor */
             text-shadow: 0 0 20px rgba(211, 122, 255, 0.7);
         }
 
@@ -73,7 +76,7 @@
             font-size: 1.2em;
             color: var(--text-color);
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px; /* Margem menor antes da search bar */
         }
 
         /* Search Bar */
@@ -114,79 +117,31 @@
             font-size: 1.3em;
         }
 
-        /* Seções de Jogos */
+        /* Seções de Jogos - Removido o título da seção e o grid inicial de jogos */
         .game-section {
-            padding: 40px 20px;
+            padding: 20px; /* Um padding para o conteúdo abaixo, se houver */
             max-width: 1200px;
             margin: 0 auto;
+            min-height: 300px; /* Garante que a área não suma completamente */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centraliza a mensagem de "nenhum resultado" */
         }
-
+        /* Oculta o título da seção de jogos, já que não será usado agora */
         .section-title {
-            font-size: 2.5em;
-            color: var(--header-text-color);
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
+            display: none;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--highlight-color);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
+        /* O game-grid agora será o contêiner para a mensagem "nenhum resultado" */
         .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Tamanho ajustado para mais cards */
-            gap: 30px;
-        }
-
-        .game-card {
-            background-color: var(--card-background-color);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 1px solid var(--border-color);
-        }
-
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
-            border-color: var(--highlight-color);
-        }
-
-        .game-card img {
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            height: 280px; /* Altura da capa maior */
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
-            display: block; /* Remove espaço extra abaixo da imagem */
         }
 
-        .game-info {
-            padding: 15px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .game-info h2 {
-            font-size: 1.3em;
-            margin: 0 0 10px;
-            color: var(--highlight-color);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        .game-card { /* Mantido para estilo futuro, mas não visível por padrão */
+            display: none; /* Esconde todos os cards por padrão */
         }
 
         .no-results {
@@ -194,7 +149,6 @@
             font-size: 1.5em;
             color: #C0C0C0;
             margin-top: 50px;
-            grid-column: 1 / -1; /* Ocupa todas as colunas no grid */
         }
 
         /* Footer */
@@ -217,7 +171,7 @@
                 font-size: 1.8em;
             }
             .menu-icon {
-                display: block; /* Mostra o menu hambúrguer em telas menores */
+                display: block;
             }
             .hero-section h1 {
                 font-size: 2.5em;
@@ -233,16 +187,6 @@
                 right: 15px;
                 font-size: 1.2em;
             }
-            .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-                gap: 20px;
-            }
-            .game-card img {
-                height: 240px;
-            }
-            .game-info h2 {
-                font-size: 1.2em;
-            }
             .section-title {
                 font-size: 2em;
                 margin-bottom: 30px;
@@ -255,7 +199,7 @@
                 align-items: flex-start;
             }
             .menu-icon {
-                margin-top: 10px; /* Ajuste para o ícone abaixo do logo se em coluna */
+                margin-top: 10px;
             }
             .hero-section {
                 padding: 30px 15px;
@@ -270,22 +214,8 @@
                 width: calc(100% - 40px);
                 padding: 10px 40px 10px 15px;
             }
-            .game-grid {
-                grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
-                gap: 15px;
-            }
-            .game-card {
-                max-width: 250px; /* Limita a largura do card em 1 coluna */
-                margin: 0 auto;
-            }
-            .game-card img {
-                height: 200px;
-            }
-            .game-info h2 {
-                font-size: 1.1em;
-            }
-            .section-title {
-                font-size: 1.8em;
+            .game-grid { /* Ajuste para centralizar a mensagem em telas pequenas */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -306,68 +236,7 @@
     </section>
 
     <main class="game-section">
-        <h2 class="section-title">Jogos Emulados</h2>
         <div class="game-grid" id="gameList">
-            <div class="game-card" data-name="Elden Ring">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/elden_ring.jpg" alt="Elden Ring Cover">
-                <div class="game-info">
-                    <h2>Elden Ring</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="Resident Evil 4 Remake">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/resident_evil_4.jpg" alt="Resident Evil 4 Remake Cover">
-                <div class="game-info">
-                    <h2>Resident Evil 4 Remake</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="Cyberpunk 2077">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/cyberpunk_2077.jpg" alt="Cyberpunk 2077 Cover">
-                <div class="game-info">
-                    <h2>Cyberpunk 2077</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="Horizon Zero Dawn">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/horizon_zero_dawn.jpg" alt="Horizon Zero Dawn Cover">
-                <div class="game-info">
-                    <h2>Horizon Zero Dawn</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="God of War Ragnarok">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/god_of_war_ragnarok.jpg" alt="God of War: Ragnarök Cover">
-                <div class="game-info">
-                    <h2>God of War: Ragnarök</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="Spider-Man Miles Morales">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/spiderman_miles_morales.jpg" alt="Spider-Man Miles Morales Cover">
-                <div class="game-info">
-                    <h2>Spider-Man: Miles Morales</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="The Legend of Zelda Ocarina of Time">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/ocarina_of_time.jpg" alt="The Legend of Zelda: Ocarina of Time Cover">
-                <div class="game-info">
-                    <h2>The Legend of Zelda: Ocarina of Time</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="Super Mario 64">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/super_mario_64.jpg" alt="Super Mario 64 Cover">
-                <div class="game-info">
-                    <h2>Super Mario 64</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="Pokemon Yellow">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/pokemon_yellow.jpg" alt="Pokémon Yellow Cover">
-                <div class="game-info">
-                    <h2>Pokémon Yellow</h2>
-                </div>
-            </div>
-            <div class="game-card" data-name="Metroid Prime">
-                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/metroid_prime.jpg" alt="Metroid Prime Cover">
-                <div class="game-info">
-                    <h2>Metroid Prime</h2>
-                </div>
-            </div>
             </div>
     </main>
 
@@ -378,38 +247,20 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
-            const gameList = document.getElementById('gameList'); // A div que contém os cards
-            const gameCards = document.querySelectorAll('.game-card'); // Todos os cards de jogo
+            const gameList = document.getElementById('gameList'); // O contêiner onde a mensagem de resultado será exibida
 
+            // Adiciona a mensagem "Nenhum jogo encontrado" por padrão quando a página carrega,
+            // já que não haverá cards inicialmente.
+            const initialNoResults = document.createElement('p');
+            initialNoResults.classList.add('no-results');
+            initialNoResults.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
+            gameList.appendChild(initialNoResults);
+
+
+            // Lógica de pesquisa - ajustada para lidar com a ausência de cards no HTML
             searchInput.addEventListener('input', (event) => {
                 const searchTerm = event.target.value.toLowerCase();
                 let foundResults = false;
-
-                gameCards.forEach(card => {
-                    // Pega o nome do jogo do atributo data-name e converte para minúsculas
-                    const gameName = card.getAttribute('data-name').toLowerCase();
-                    if (gameName.includes(searchTerm)) {
-                        card.style.display = 'flex'; // Mostra o card se corresponder
-                        foundResults = true;
-                    } else {
-                        card.style.display = 'none'; // Esconde o card
-                    }
-                });
-
-                // Lógica para a mensagem "Nenhum resultado"
-                let noResultsMessage = document.querySelector('.no-results'); // Procura por uma mensagem existente
-                if (!foundResults && !noResultsMessage) {
-                    // Se não encontrou resultados e não há mensagem, cria uma
-                    const p = document.createElement('p');
-                    p.classList.add('no-results');
-                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
-                    gameList.appendChild(p); // Adiciona a mensagem dentro do gameList
-                } else if (foundResults && noResultsMessage) {
-                    // Se encontrou resultados e há uma mensagem, remove-a
-                    noResultsMessage.remove();
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                // Como não há cards no HTML, esta linha sempre resultará em uma NodeList vazia.
+                // A lógica abaixo agora garantirá que a mensagem "nenhum resultado" sempre apareça ou seja removida.
+                const gameCards
