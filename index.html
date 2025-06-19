@@ -27,12 +27,6 @@
             padding: 0;
             line-height: 1.6;
             overflow-x: hidden;
-    
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqEn8KJZq__7x0CiM3kiGMi11ap-1dH7afWQ&usqp=CAU');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* A linha 'background-attachment: fixed;' foi removida para consertar o problema */
         }
         .main-header {
             background-color: var(--background-color);
@@ -43,4 +37,275 @@
             border-bottom: 1px solid var(--border-color);
             box-shadow: 0 2px 8px var(--shadow-color);
         }
-        .
+        .logo {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: var(--header-text-color);
+            text-shadow: 0 0 15px rgba(160, 32, 240, 0.6);
+        }
+        .hero-section {
+            text-align: center;
+            padding: 30px 20px 40px;
+            background: linear-gradient(180deg, var(--background-color) 0%, #1A0033 100%);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        .hero-section h1 {
+            font-size: 3em;
+            color: var(--header-text-color);
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(160, 32, 240, 0.8);
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .search-input {
+            width: calc(100% - 60px);
+            padding: 15px 50px 15px 25px;
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            background-color: var(--input-bg-color);
+            color: var(--input-text-color);
+            font-size: 1.1em;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+        }
+        .search-input::placeholder { color: #C080E0; }
+        .search-input:focus {
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 15px rgba(156, 39, 176, 0.8);
+        }
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--highlight-color);
+            font-size: 1.3em;
+        }
+        .game-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+        .game-card {
+            background-color: var(--card-background-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+        }
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8);
+            border-color: var(--highlight-color);
+        }
+        .game-card-image-wrapper {
+            height: 320px;
+            width: 100%;
+            background-color: #000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .game-info {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .game-info h2 {
+            font-size: 1.3em;
+            margin: 0 0 10px;
+            color: var(--highlight-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .game-download-link {
+            display: block;
+            background-color: var(--button-bg-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        .game-download-link:hover {
+            background-color: var(--button-hover-color);
+            transform: translateY(-2px);
+        }
+        .no-results {
+            text-align: center;
+            font-size: 1.5em;
+            color: #C0C0C0;
+            margin-top: 50px;
+            grid-column: 1 / -1;
+        }
+        .main-footer {
+            background-color: var(--card-background-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            box-shadow: 0 -4px 15px var(--shadow-color);
+        }
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.5em; }
+            .game-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+            .game-card-image-wrapper { height: 280px; }
+        }
+        @media (max-width: 480px) {
+            .hero-section h1 { font-size: 2em; }
+            .game-grid { grid-template-columns: 1fr; }
+            .game-card { max-width: 280px; margin: 0 auto; }
+            .game-card-image-wrapper { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">Emulation Home</div>
+    </header>
+
+    <section class="hero-section">
+        <h1>Jogos de PC</h1>
+        <p>Encontre seus clássicos favoritos e novas aventuras.</p>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar por um jogo...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </section>
+
+    <main class="game-section">
+        <div class="game-grid" id="gameList">
+            <div class="game-card" data-name="GTA 5 Grand Theft Auto V">
+                <div class="game-card-image-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" alt="Capa do Grand Theft Auto V">
+                </div>
+                <div class="game-info">
+                    <h2>Grand Theft Auto 5</h2>
+                    <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+            <div class="game-card" data-name="GTA 4 Grand Theft Auto IV">
+                <div class="game-card-image-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/pt/9/91/Grand_Theft_Auto_IV_capa.png" alt="Capa do Grand Theft Auto IV">
+                </div>
+                <div class="game-info">
+                    <h2>Grand Theft Auto IV</h2>
+                    <a href="https://drive.usercontent.google.com/download?id=1AVQ147kGKcArqqwZvdIL_wY-6uZ8xs3X&export=download&authuser=0" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+            <div class="game-card" data-name="Resident Evil 6">
+                <div class="game-card-image-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" alt="Capa do Resident Evil 6">
+                </div>
+                <div class="game-info">
+                    <h2>Resident Evil 6</h2>
+                    <a href="https://buzzheavier.com/uww3eogkg4ar" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+            <div class="game-card" data-name="Cuphead">
+                <div class="game-card-image-wrapper">
+                    <img src="https://upload.wikimedia.org/wikipedia/pt/c/c1/Cuphead_capa.png" alt="Capa do Cuphead">
+                </div>
+                <div class="game-info">
+                    <h2>Cuphead</h2>
+                    <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+            <div class="game-card" data-name="Five Nights at Freddy's The Mimic FNAF">
+                <div class="game-card-image-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSJL-8A8vzAmHW_Puoynux_I4oAbb3r1F7Vfqs65DjYaml2cQ0Jv2gt99F&s=10" alt="">
+                </div>
+                <div class="game-info">
+                    <h2>FNAF - The Mimic</h2>
+                    <a href="https://gofile.io/d/Yt2mRo" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // SCRIPT À PROVA DE FALHAS
+        try {
+            document.addEventListener('DOMContentLoaded', () => {
+                const searchInput = document.getElementById('searchInput');
+                const gameGrid = document.getElementById('gameList');
+
+                // Se os elementos principais não existirem, o script para aqui para não quebrar a página.
+                if (!searchInput || !gameGrid) {
+                    console.error("Erro: Não foi possível encontrar a barra de busca ou a lista de jogos.");
+                    return;
+                }
+
+                const filterGames = () => {
+                    const searchTerm = searchInput.value.toLowerCase().trim();
+                    const gameCards = gameGrid.querySelectorAll('.game-card');
+                    let resultsFound = false;
+
+                    gameCards.forEach(card => {
+                        if (card && card.dataset && card.dataset.name) {
+                            const gameName = card.dataset.name.toLowerCase();
+                            const isVisible = gameName.includes(searchTerm);
+                            card.style.display = isVisible ? 'flex' : 'none';
+                            if (isVisible) resultsFound = true;
+                        }
+                    });
+
+                    let noResultsMessage = gameGrid.querySelector('.no-results');
+                    if (!resultsFound && searchTerm) {
+                        if (!noResultsMessage) {
+                            const p = document.createElement('p');
+                            p.className = 'no-results';
+                            p.textContent = 'Nenhum jogo encontrado.';
+                            gameGrid.appendChild(p);
+                        }
+                    } else if (noResultsMessage) {
+                        noResultsMessage.remove();
+                    }
+                };
+
+                searchInput.addEventListener('input', filterGames);
+            });
+        } catch (e) {
+            // Se qualquer erro inesperado acontecer, ele será mostrado no console
+            // em vez de quebrar a página e gerar uma tela preta.
+            console.error("Ocorreu um erro crítico que foi capturado:", e);
+        }
+    </script>
+</body>
+</html>
