@@ -4,275 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emulation Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="URL_DO_SEU_FAVICON_AQUI">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Conteúdo do style.css */
         :root {
-            --background-dark: #121212;
-            --card-dark: #1e1e1e;
-            --text-light: #E0E0E0;
-            --primary-purple: #9b59b6;
-            --action-blue: #007bff;
-            --action-blue-hover: #0056b3;
-            --border-color: #333;
-            --overlay-color: rgba(0, 0, 0, 0.6); /* Cor da sobreposição para a imagem de fundo */
+            --background-color: #1a1a1a;
+            --card-background-color: #2c2c2c;
+            --text-color: #e0e0e0;
+            --link-color: #4CAF50; /* Um tom de verde para links e destaques */
+            --link-hover-color: #66BB6A;
+            --border-color: #444;
+            --input-background-color: #3a3a3a;
+            --input-text-color: #e0e0e0;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-dark);
-            color: var(--text-light);
+            background-color: var(--background-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
-
-            /* --- IMAGEM DE FUNDO ADICIONADA AQUI --- */
-            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOVFGGxVXnymeIKifgnaM3UfyIu93Hxo5qmgobN1744Y1rYi7fdUMczOWbnvsrBmD4Nw5ssaJ2AFwFWbgthkpi7tQbD17hlCpWvmEMRnvCNWgeD05LGTlLK2NjytOSBTIeqFlrAy7fUQw8/w360-h640-rw/cool-wallpaper-1914-1080x1920.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Opcional: fixa a imagem de fundo */
-        }
-
-        /* Camada de sobreposição para melhorar a legibilidade do texto */
-        .background-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--overlay-color);
-            z-index: -1; /* Garante que fique abaixo do conteúdo principal */
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            padding: 20px;
-            box-sizing: border-box;
-            position: relative; /* Necessário para z-index funcionar */
-            z-index: 1; /* Garante que o conteúdo fique acima do overlay */
+            line-height: 1.6;
         }
 
         header {
+            background-color: var(--card-background-color);
+            padding: 20px;
             text-align: center;
-            padding: 20px 0 15px 0;
-            margin-bottom: 20px;
             border-bottom: 1px solid var(--border-color);
-            width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2em;
-            color: var(--primary-purple);
-            margin-bottom: 5px;
+        header h1 {
+            margin: 0;
+            color: var(--link-color);
         }
 
-        header p {
-            font-size: 0.95em;
-            color: #b0b0b0;
-        }
-
-        .search-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 30px auto;
+        .search-bar {
+            margin-top: 15px;
         }
 
         #searchInput {
-            width: calc(100% - 40px);
-            padding: 12px 15px;
-            padding-right: 40px;
+            width: 80%;
+            max-width: 500px;
+            padding: 12px 20px;
             border: 1px solid var(--border-color);
             border-radius: 25px;
-            background-color: var(--card-dark);
-            color: var(--text-light);
+            background-color: var(--input-background-color);
+            color: var(--input-text-color);
             font-size: 1em;
             outline: none;
             transition: border-color 0.3s ease;
         }
 
+        #searchInput::placeholder {
+            color: #999;
+        }
+
         #searchInput:focus {
-            border-color: var(--primary-purple);
+            border-color: var(--link-color);
         }
 
-        .search-icon {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #777;
-            pointer-events: none;
-        }
-
-        .game-list {
-            width: 100%;
+        main {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 18px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 20px auto;
         }
 
         .game-card {
-            background-color: var(--card-dark);
+            background-color: var(--card-background-color);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        .game-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover; /* Mantido 'cover' conforme sua solicitação */
-            display: block;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .game-info {
-            padding: 12px;
-            text-align: center;
-            flex-grow: 1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .game-info h3 {
-            color: #fff;
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 200px; /* Altura fixa para as capas */
+            object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .game-info {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1; /* Permite que o info ocupe o espaço restante */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .game-info h2 {
+            font-size: 1.4em;
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 1.1em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .download-link {
-            display: inline-block;
-            background-color: var(--action-blue);
-            color: white;
-            padding: 9px 14px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-size: 0.9em;
-            margin-top: auto;
-        }
-
-        .download-link:hover {
-            background-color: var(--action-blue-hover);
-            transform: translateY(-2px);
-        }
-
-        .no-results-message {
-            text-align: center;
-            color: #777;
-            font-size: 1.1em;
-            margin-top: 30px;
-            display: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px 0;
-            margin-top: auto;
-            border-top: 1px solid var(--border-color);
-            color: #777;
-            font-size: 0.85em;
-            width: 100%;
+            color: var(--text-color);
+            white-space: nowrap; /* Evita quebra de linha */
+            overflow: hidden; /* Oculta o excesso */
+            text-overflow: ellipsis; /* Adiciona "..." */
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
-            .game-list {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                gap: 15px;
+            main {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+                padding: 20px;
             }
-            .game-card img {
-                height: 200px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            header p {
-                font-size: 0.9em;
+
+            #searchInput {
+                width: 90%;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
+            main {
+                grid-template-columns: 1fr;
                 padding: 15px;
             }
-            .game-list {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
+
             .game-card img {
                 height: 180px;
             }
-            h1 {
-                font-size: 1.8em;
-            }
-            #searchInput {
-                padding: 10px 15px;
-                padding-right: 40px;
+
+            .game-info h2 {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="background-overlay"></div> <div class="container">
-        <header>
-            <h1>Emulation Home</h1>
-            <p>Seus jogos para emulação estão aqui.</p>
-        </header>
-
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Buscar jogos por nome...">
-            <i class="fas fa-search search-icon"></i>
+    <header>
+        <h1>Emulation Home</h1>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Pesquisar jogos...">
         </div>
+    </header>
 
-        <div class="game-list" id="gameList">
-            <div class="game-card">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/f/f3/Red_Dead_Redemption_capa.png" alt="Red Dead Redemption">
-                <div class="game-info">
-                    <h3>Red Dead Redemption</h3>
-                    <a href="https://gofile.io/d/TTVnFR" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
-                </div>
-            </div>
+    <main id="gameList">
+        </main>
 
-            <div class="game-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Grand_Theft_Auto_V_cover.jpg" alt="Grand Theft Auto V">
-                <div class="game-info">
-                    <h3>Grand Theft Auto V</h3>
-                    <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
-                </div>
-            </div>
+    <footer>
+        <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
+    </footer>
 
-            <div class="game-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/b/b3/Cyberpunk_2077_cover_art.jpg" alt="Cyberpunk 2077">
-                <div class="game-info">
-                    <h3>Cyberpunk 2077</h3>
-                    <a href="https://buzzheavier.com/rx20ieyt9m2e" class="download-link" target="_blank" rel="noopener noreferrer">Download</a>
-                </div>
-            </div>
-
-            <div class
+    <script>
+        /* Conteúdo do games.json (como uma string JSON) */
+        const gamesJsonData = `
+[
+    {
+        "id": "hollowknight",
+        "name": "Hollow Knight",
+        "cover": "assets/covers/hollow_knight.jpg"
+    },
+    {
+        "id": "stardewvalley",
+        "name": "Stardew Valley",
+        "cover": "assets/covers/stardew_valley.jpg"
+    },
+    {
+        "id": "undertale",
+        "name": "Undertale",
+        "cover": "assets/covers/undertale.jpg"
+    },
+    {
+        "id": "celeste",
+        "name": "Celeste",
+        "cover": "assets/covers/celeste.jpg"
+    },
+    {
+        "id": "cuphead",
+        "name": "Cuphead",
+        "cover": "assets/covers/cuphead.jpg"
+    },
+    {
+        "id": "deadcells",
+        "name": "Dead Cells",
+        "cover": "assets/covers/dead_cells.jpg"
+    },
+    {
+        "id": "oriandtheblindforest",
+        "name": "Ori and the Blind Forest",
+        "cover": "assets/covers/ori_blind_forest.jpg"
+    },
+    {
+        "id": "thewitness",
+        "name": "The Witness",
+        "cover": "assets/covers/the_witness.jpg"
+    },
+    {
+        "
