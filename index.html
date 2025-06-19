@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emulation Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="URL_DO_SEU_FAVICON_AQUI">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif; /* Aplica a nova fonte */
+            font-size: 2.5em;
+            color: #9b59b6; /* Cor roxa vibrante */
+            margin-bottom: 10px;
+        }
+
+        .game-list {
+            width: 90%;
+            max-width: 960px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .game-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .game-card:hover {
+            transform: scale(1.03);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .game-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .game-info h3 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .download-link {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .game-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Emulation Home</h1>
+        <p>Seu portal para o mundo da emulação.</p>
+    </header>
+
+    <div class="game-list">
+        <div class="game-card">
+            <img src="URL_DA_CAPA_DO_JOGO_1" alt="Capa do Jogo 1">
+            <div class="game-info">
+                <h3>Nome do Jogo 1</h3>
+                <a href="LINK_DO_JOGO_1" class="download-link" target="_blank" rel="noopener noreferrer">Jogar Agora</a>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <img src="URL_DA_CAPA_DO_JOGO_2" alt="Capa do Jogo 2">
+            <div class="game-info">
+                <h3>Nome do Jogo 2</h3>
+                <a href="LINK_DO_JOGO_2" class="download-link" target="_blank" rel="noopener noreferrer">Jogar Agora</a>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <img src="URL_DA_CAPA_DO_JOGO_3" alt="Capa do Jogo 3">
+            <div class="game-info">
+                <h3>Nome do Jogo 3</h3>
+                <a href="LINK_DO_JOGO_3" class="download-link" target="_blank" rel="noopener noreferrer">Jogar Agora</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Emulation Home</p>
+    </footer>
+
+</body>
+</html>
