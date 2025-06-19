@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emulation Home</title>
+    <!-- Link para o Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /*
@@ -158,8 +159,8 @@
 
         .game-card img {
             width: 100%; /* Imagem ocupa 100% da largura do card */
-            height: 320px; /* ALTURA DA CAPA AJUSTADA (de 350px para 320px) */
-            object-fit: cover; /* Mantido como cover */
+            height: 320px; /* ALTURA FIXA para todas as imagens de capa */
+            object-fit: cover; /* Corta a imagem para preencher o espaço, mantendo a proporção */
             border-bottom: 1px solid var(--border-color); /* Borda inferior da imagem */
             display: block; /* Remove espaço extra abaixo da imagem em alguns navegadores */
         }
@@ -177,10 +178,11 @@
             font-size: 1.3em; /* Tamanho do título do jogo */
             margin: 0 0 10px; /* Margens */
             color: var(--highlight-color); /* Cor do título do jogo (Roxo de destaque) */
-            /* Se você quiser que o título quebre a linha em vez de truncar, remova as 3 linhas abaixo */
-            /* white-space: nowrap; */
-            /* overflow: hidden; */
-            /* text-overflow: ellipsis; */
+            /* Essas três linhas fazem o texto truncar com '...' se for muito longo. */
+            /* Se quiser que o título quebre a linha, pode remover ou comentar estas 3 linhas. */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* Estilo para o botão/link de "Baixar" */
@@ -307,64 +309,74 @@
 
     <main class="game-section">
         <div class="game-grid" id="gameList">
+            <!-- Game Card: GTA 5 -->
             <div class="game-card" data-name="GTA 5">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" alt="GTA V">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=GTA+V+Imagem';" alt="Capa do Grand Theft Auto V">
                 <div class="game-info">
                     <h2>Grand Theft Auto 5</h2>
                     <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
+            <!-- Game Card: GTA 4 -->
             <div class="game-card" data-name="GTA 4">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/9/91/Grand_Theft_Auto_IV_capa.png" alt="GTA 4">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/9/91/Grand_Theft_Auto_IV_capa.png" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=GTA+IV+Imagem';" alt="Capa do Grand Theft Auto IV">
                 <div class="game-info">
                     <h2>Grand Theft Auto IV</h2>
                     <a href="https://drive.usercontent.google.com/download?id=1AVQ147kGKcArqqwZvdIL_wY-6uZ8xs3X&export=download&authuser=0" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
+            <!-- Game Card: Resident Evil 6 -->
             <div class="game-card" data-name="Resident evil 6">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" alt="Resident evil 6">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Resident+Evil+6+Imagem';" alt="Capa do Resident Evil 6">
                 <div class="game-info">
                     <h2>Resident evil 6</h2>
                     <a href="https://buzzheavier.com/uww3eogkg4ar" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
+            <!-- Game Card: Cuphead -->
             <div class="game-card" data-name="Cuphead">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/c/c1/Cuphead_capa.png" alt="Cuphead">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/c/c1/Cuphead_capa.png" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Cuphead+Imagem';" alt="Capa do Cuphead">
                 <div class="game-info">
                     <h2>Cuphead</h2>
                     <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
+            <!-- Game Card: Five Nights at Freddy's: Secret of the Mimic -->
             <div class="game-card" data-name="Fnaf mimic">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj-rM0rwlCJ37ap2fziMD0hFe34Rjgxqq-0QhT0nQ7Z6YIUSmk9cau6TE&s=10" alt="Five Nights at Freddy's: Secret of the Mimic">
+                <!-- URL mais confiável para FNAF Mimic, adicionei placeholders de texto -->
+                <img src="https://m.media-amazon.com/images/I/71R2c833XHL._AC_UF894,1000_QL80_.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=FNAF+Mimic+Imagem';" alt="Capa do Five Nights at Freddy's: Secret of the Mimic">
                 <div class="game-info">
                     <h2>Five Nights at Freddy's: Secret of the Mimic</h2>
                     <a href="https://gofile.io/d/Yt2mRo" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
+            <!-- Game Card: Just Cause 2 -->
             <div class="game-card" data-name="Just cause 2">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Just_Cause_2_cover_art.jpg" alt="Just Cause 2">
+                <!-- URL mais confiável para Just Cause 2, adicionei placeholders de texto -->
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Just_Cause_2_cover_art.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Just+Cause+2+Imagem';" alt="Capa do Just Cause 2">
                 <div class="game-info">
                     <h2>Just Cause 2</h2>
                     <a href="https://buzzheavier.com/wd40jnidba2j" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
+            <!-- Game Card: Dead Space -->
             <div class="game-card" data-name="Dead space">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/3/35/Dead_Space_capa.png" alt="Dead space">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/3/35/Dead_Space_capa.png" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Dead+Space+Imagem';" alt="Capa do Dead Space">
                 <div class="game-info">
                     <h2>Dead Space</h2>
                     <a href="https://buzzheavier.com/qybukhrujnlj" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
 
+            <!-- Game Card: Mortal Kombat Komplete Edition -->
             <div class="game-card" data-name="Mortal Kombat">
-                <img src="https://upload.wikimedia.org/wikipedia/pt/2/2d/Mortal_Kombat_Komplete_Edition.jpg" alt="mortal Kombat 9">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/2/2d/Mortal_Kombat_Komplete_Edition.jpg" onerror="this.onerror=null;this.src='https://placehold.co/250x320/330066/E0E0FF?text=Mortal+Kombat+Imagem';" alt="Capa do Mortal Kombat Komplete Edition">
                 <div class="game-info">
                     <h2>Mortal Kombat Komplete edition</h2>
                     <a href="https://buzzheavier.com/9klqvyqn0i3e" class="game-download-link" target="_blank">Baixar Jogo</a>
@@ -382,39 +394,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
             const gameList = document.getElementById('gameList');
-            const initialGameCards = document.querySelectorAll('.game-card'); // Seleciona TODOS os cards presentes no HTML
-
+            
             // Função para exibir/ocultar a mensagem "Nenhum resultado"
             function toggleNoResultsMessage(show) {
-                let noResultsMessage = document.querySelector('.no-results');
-
-                if (show && !noResultsMessage) {
-                    const p = document.createElement('p');
-                    p.classList.add('no-results');
-                    p.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
-                    gameList.appendChild(p);
-                } else if (!show && noResultsMessage) {
-                    noResultsMessage.remove();
-                }
-            }
-
-            // Lógica de pesquisa: filtra os cards de jogo visíveis
-            searchInput.addEventListener('input', (event) => {
-                const searchTerm = event.target.value.toLowerCase().trim(); // Termo de busca em minúsculas e sem espaços extras
-                let foundResults = false;
-
-                // Percorra a lista de cards de jogo inicial
-                initialGameCards.forEach(card => {
-                    const gameName = card.getAttribute('data-name').toLowerCase(); // Nome do jogo no atributo data-name
-                    
-                    // Verifica se o nome do jogo INCLUI o termo de busca
-                    if (gameName.includes(searchTerm)) {
-                        card.style.display = 'flex'; // Mostra o card se corresponder
-                        foundResults = true;
-                    } else {
-                        card.style.display = 'none'; // Esconde o card
-                    }
-                });
-
-                // Exibe ou esconde a mensagem de "nenhum resultado"
-   
+                l
