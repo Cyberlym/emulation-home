@@ -153,14 +153,11 @@
             overflow: hidden; /* Garante que nada saia dos limites do card */
             box-shadow: 0 8px 20px var(--shadow-color); /* Sombra do card */
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave no hover */
-            display: flex; /* Usa flexbox para o conteúdo interno do card */
+            /* Garante que os cards estejam visíveis por padrão */
+            display: flex; /* MANTIDO COMO FLEX POR PADRÃO */
             flex-direction: column; /* Organiza a imagem, título e botão em coluna */
             justify-content: space-between; /* Espaça conteúdo verticalmente */
             border: 1px solid var(--border-color); /* Borda sutil */
-        }
-        /* Por padrão, os cards devem ser visíveis, o JS vai escondê-los se a pesquisa filtrar */
-        .game-card {
-            display: flex; /* Garante que os cards estejam visíveis por padrão */
         }
 
         .game-card:hover {
@@ -244,7 +241,7 @@
             }
             .menu-icon {
                 display: block; /* Mostra o ícone de menu hambúrguer */
-                font-size: 3.5em; /* TAMANHO DO ÍCONE AUMENTADO AINDA MAIS */
+                font-size: 3.5em; /* TAMANHO DO ÍCONE AUMENTADO */
             }
             .hero-section h1 {
                 font-size: 2.5em;
@@ -348,18 +345,6 @@
 
             <!-- Jogo: Resident Evil 6 -->
             <div class="game-card" data-name="Resident evil 6">
-                <!-- 
-                     A imagem do Resident Evil 6 pode parecer "menor" ou "torta"
-                     se a imagem ORIGINAL que você está usando (do link abaixo)
-                     tiver uma proporção diferente das outras capas.
-                     'object-fit: cover' preenche o espaço cortando a imagem para manter
-                     a proporção original, mas se a imagem fonte for muito "larga",
-                     o que resta pode parecer pequeno ou estranho verticalmente.
-                     
-                     A MELHOR SOLUÇÃO é encontrar uma imagem de capa diferente para o
-                     Resident Evil 6 que tenha uma proporção mais próxima da vertical
-                     padrão de capas de jogos (ex: 2:3 ou 3:4).
-                -->
                 <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" alt="Resident evil 6">
                 <div class="game-info">
                     <h2>Resident evil 6</h2>
@@ -388,8 +373,18 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('searchInput');
-            const gameList = document.getElementById('gameList'); // A div que contém os cards
-            const gameCards = document.querySelectorAll('.game-card'); // Todos os cards de jogo
+            const gameList = document.getElementById('gameList'); 
+            const gameCards = document.querySelectorAll('.game-card'); // Agora, deve selecionar corretamente
+
+            // Verifica se há cards de jogo no carregamento inicial
+            // Se não houver, exibe a mensagem "Nenhum jogo encontrado".
+            if (gameCards.length === 0) {
+                const initialNoResultsMessage = document.createElement('p');
+                initialNoResultsMessage.classList.add('no-results');
+                initialNoResultsMessage.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
+                gameList.appendChild(initialNoResultsMessage);
+            }
+
 
             // Lógica de pesquisa: filtra os cards de jogo visíveis
             searchInput.addEventListener('input', (event) => {
@@ -418,11 +413,7 @@
                     noResultsMessage.remove();
                 }
             });
-
-            // Lógica para a mensagem inicial "Nenhum jogo encontrado"
-            // Se não houver cards de jogo no HTML no carregamento inicial, exibe a mensagem.
-            // Removido este bloco porque a página agora tem cards por padrão.
-            /*
-            if (gameCards.length === 0) {
-                const initialNoResultsMessage = document.createElement('p');
-                initialNoResultsMessage.classList.add('no-results'
+        });
+    </script>
+</body>
+</html>
