@@ -4,165 +4,232 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emulation Home</title>
+    <!-- Inclui a biblioteca Font Awesome para ícones (como a lupa da pesquisa e o menu hambúrguer) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Variáveis de Cores - Tema Dark Roxo */
+        /*
+         * Seção de Variáveis CSS (Tema Dark Roxo)
+         * Aqui definimos as cores que serão usadas em toda a interface para facilitar a modificação.
+         */
         :root {
-            --background-color: #1A0D3B; /* Roxo muito escuro, quase preto */
-            --card-background-color: #2F1E5E; /* Roxo escuro para cards */
-            --text-color: #E0E0FF; /* Texto principal roxo claro */
-            --header-text-color: #A742F7; /* Roxo vibrante para títulos */
-            --highlight-color: #D37AFF; /* Roxo mais claro para destaque e ícones */
+            --background-color: #1A0D3B; /* Roxo muito escuro, quase preto, para o fundo geral */
+            --card-background-color: #2F1E5E; /* Roxo escuro para os fundos dos cards e footer/header */
+            --text-color: #E0E0FF; /* Cor principal do texto (roxo claro/branco) */
+            --header-text-color: #A742F7; /* Roxo vibrante para títulos e logo */
+            --highlight-color: #D37AFF; /* Roxo mais claro para destaque, ícones e bordas de foco */
             --input-bg-color: #4A2B86; /* Fundo da busca roxo mais claro */
             --input-text-color: #E0E0FF;
-            --border-color: #5E35B1; /* Borda sutil */
-            --shadow-color: rgba(0, 0, 0, 0.5);
+            --border-color: #5E35B1; /* Cor para bordas sutis */
+            --shadow-color: rgba(0, 0, 0, 0.5); /* Cor base para sombras */
+            --button-bg-color: #6200EE; /* Roxo mais escuro para botões */
+            --button-hover-color: #9C27B0; /* Roxo mais claro para hover do botão */
         }
 
+        /* Estilos Globais para o Corpo da Página */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            overflow-x: hidden; /* Evita scroll horizontal indesejado */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
+            background-color: var(--background-color); /* Aplica a cor de fundo definida */
+            color: var(--text-color); /* Aplica a cor do texto padrão */
+            margin: 0; /* Remove margens padrão do navegador */
+            padding: 0; /* Remove preenchimento padrão do navegador */
+            line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
         }
 
-        /* Header */
+        /* Estilos do Cabeçalho Principal */
         .main-header {
-            background-color: var(--background-color);
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--background-color); /* Fundo do cabeçalho */
+            padding: 20px 40px; /* Preenchimento interno */
+            display: flex; /* Usa flexbox para alinhar logo e menu */
+            justify-content: space-between; /* Espaça logo e menu */
+            align-items: center; /* Alinha verticalmente */
+            border-bottom: 1px solid var(--border-color); /* Borda inferior sutil */
+            box-shadow: 0 2px 8px var(--shadow-color); /* Sombra para profundidade */
         }
 
         .logo {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: var(--header-text-color);
-            text-shadow: 0 0 15px rgba(211, 122, 255, 0.5);
+            font-size: 2.2em; /* Tamanho do texto do logo */
+            font-weight: bold; /* Negrito */
+            color: var(--header-text-color); /* Cor do logo */
+            text-shadow: 0 0 15px rgba(211, 122, 255, 0.5); /* Efeito de brilho */
         }
 
         .menu-icon {
-            font-size: 1.8em;
-            color: var(--highlight-color);
-            cursor: pointer;
-            display: none; /* Esconde em telas grandes */
+            font-size: 1.8em; /* Tamanho do ícone do menu hambúrguer */
+            color: var(--highlight-color); /* Cor do ícone */
+            cursor: pointer; /* Indica que é clicável */
+            display: none; /* Esconde o ícone em telas grandes (será visível em mobile) */
         }
 
-        /* Hero Section (Área principal, mais compacta e centralizada) */
+        /* Seção Principal "Hero" (Título, Descrição e Barra de Pesquisa) */
         .hero-section {
-            text-align: center;
-            /* Reduzido o padding superior e inferior para compactar */
-            padding: 40px 20px 40px; /* Um pouco mais de padding inferior para a search bar */
-            background: linear-gradient(180deg, var(--background-color) 0%, #2A175B 100%);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px var(--shadow-color);
-            /* Ajusta a margem para mover para cima, se necessário, ou padding negativo */
-            margin-top: -20px; /* Exemplo: Puxa a seção um pouco para cima */
+            text-align: center; /* Centraliza o conteúdo */
+            padding: 40px 20px 50px; /* Preenchimento superior, lateral e inferior ajustado */
+            background: linear-gradient(180deg, var(--background-color) 0%, #2A175B 100%); /* Gradiente de roxos */
+            border-bottom: 1px solid var(--border-color); /* Borda inferior */
+            box-shadow: 0 4px 15px var(--shadow-color); /* Sombra */
+            margin-top: -20px; /* Puxa a seção um pouco para cima para compactar o topo */
+            position: relative; /* Para garantir que a sombra e borda se apliquem corretamente */
+            z-index: 1; /* Garante que fique acima de outros elementos se houver sobreposição */
         }
 
         .hero-section h1 {
-            font-size: 3em;
-            color: var(--header-text-color);
-            margin-bottom: 8px; /* Margem menor */
-            text-shadow: 0 0 20px rgba(211, 122, 255, 0.7);
+            font-size: 3em; /* Tamanho do título principal */
+            color: var(--header-text-color); /* Cor do título */
+            margin-bottom: 8px; /* Margem abaixo do título */
+            text-shadow: 0 0 20px rgba(211, 122, 255, 0.7); /* Brilho no título */
         }
 
         .hero-section p {
-            font-size: 1.2em;
-            color: var(--text-color);
-            max-width: 700px;
-            margin: 0 auto 25px; /* Margem menor antes da search bar */
+            font-size: 1.2em; /* Tamanho da fonte da descrição */
+            color: var(--text-color); /* Cor da descrição */
+            max-width: 700px; /* Largura máxima da descrição */
+            margin: 0 auto 35px; /* Centraliza e adiciona margem abaixo da descrição */
         }
 
-        /* Search Bar */
+        /* Contêiner da Barra de Pesquisa */
         .search-container {
-            position: relative;
-            max-width: 700px;
-            margin: 0 auto;
+            position: relative; /* Para posicionar o ícone de pesquisa */
+            max-width: 700px; /* Largura máxima da barra */
+            margin: 0 auto; /* Centraliza a barra */
         }
 
         .search-input {
-            width: calc(100% - 60px); /* 100% menos o padding e ícone */
-            padding: 15px 50px 15px 25px; /* Mais padding à direita para o ícone */
-            border: 2px solid var(--border-color);
-            border-radius: 30px;
-            background-color: var(--input-bg-color);
-            color: var(--input-text-color);
-            font-size: 1.1em;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: calc(100% - 60px); /* Ocupa quase 100% da largura do contêiner, descontando paddings e ícone */
+            padding: 15px 50px 15px 25px; /* Preenchimento interno (direita maior para o ícone) */
+            border: 2px solid var(--border-color); /* Borda */
+            border-radius: 30px; /* Bordas arredondadas (pill shape) */
+            background-color: var(--input-bg-color); /* Fundo da barra */
+            color: var(--input-text-color); /* Cor do texto digitado */
+            font-size: 1.1em; /* Tamanho da fonte */
+            outline: none; /* Remove a borda de foco padrão do navegador */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para foco */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra interna para profundidade */
         }
 
         .search-input::placeholder {
-            color: #AF8EEA;
+            color: #AF8EEA; /* Cor do texto do placeholder */
         }
 
         .search-input:focus {
-            border-color: var(--highlight-color);
-            box-shadow: 0 0 15px rgba(211, 122, 255, 0.6);
+            border-color: var(--highlight-color); /* Muda a cor da borda ao focar */
+            box-shadow: 0 0 15px rgba(211, 122, 255, 0.6); /* Adiciona brilho ao focar */
         }
 
         .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--highlight-color);
-            font-size: 1.3em;
+            position: absolute; /* Posição absoluta dentro do contêiner */
+            right: 20px; /* Distância da direita */
+            top: 50%; /* Centraliza verticalmente */
+            transform: translateY(-50%); /* Ajusta a centralização vertical exata */
+            color: var(--highlight-color); /* Cor do ícone */
+            font-size: 1.3em; /* Tamanho do ícone */
         }
 
-        /* Seções de Jogos - Removido o título da seção e o grid inicial de jogos */
+        /* Seção Onde os Jogos Serão Exibidos */
         .game-section {
-            padding: 20px; /* Um padding para o conteúdo abaixo, se houver */
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 300px; /* Garante que a área não suma completamente */
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Centraliza a mensagem de "nenhum resultado" */
+            padding: 40px 20px; /* Preenchimento interno */
+            max-width: 1200px; /* Largura máxima */
+            margin: 0 auto; /* Centraliza a seção */
         }
+
         /* Oculta o título da seção de jogos, já que não será usado agora */
         .section-title {
             display: none;
         }
 
-        /* O game-grid agora será o contêiner para a mensagem "nenhum resultado" */
+        /* Contêiner dos Cards de Jogos (grid) */
         .game-grid {
+            display: grid; /* Layout de grade para os cards */
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Colunas que se ajustam */
+            gap: 30px; /* Espaçamento entre os cards */
+            width: 100%; /* Ocupa a largura total do contêiner pai */
+        }
+
+        /* Estilos para cada Card de Jogo */
+        .game-card {
+            background-color: var(--card-background-color); /* Fundo do card */
+            border-radius: 12px; /* Cantos arredondados */
+            overflow: hidden; /* Garante que nada saia dos limites do card */
+            box-shadow: 0 8px 20px var(--shadow-color); /* Sombra do card */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave no hover */
+            display: flex; /* Layout flex para conteúdo interno (imagem e info) */
+            flex-direction: column; /* Organiza em coluna */
+            justify-content: space-between; /* Espaça conteúdo verticalmente */
+            border: 1px solid var(--border-color); /* Borda sutil */
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px); /* Efeito de "levantar" no hover */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7); /* Sombra mais intensa no hover */
+            border-color: var(--highlight-color); /* Muda a cor da borda no hover */
+        }
+
+        .game-card img {
+            width: 100%; /* Imagem ocupa 100% da largura do card */
+            height: 280px; /* Altura fixa da capa */
+            object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+            border-bottom: 1px solid var(--border-color); /* Borda inferior da imagem */
+            display: block; /* Remove espaço extra abaixo da imagem em alguns navegadores */
+        }
+
+        .game-info {
+            padding: 15px; /* Preenchimento interno das informações */
+            text-align: center; /* Centraliza o texto */
+            flex-grow: 1; /* Permite que ocupe o espaço restante */
             display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .game-card { /* Mantido para estilo futuro, mas não visível por padrão */
-            display: none; /* Esconde todos os cards por padrão */
+        .game-info h2 {
+            font-size: 1.3em; /* Tamanho do título do jogo */
+            margin: 0 0 10px; /* Margens */
+            color: var(--highlight-color); /* Cor do título do jogo */
+            white-space: nowrap; /* Impede quebra de linha */
+            overflow: hidden; /* Oculta texto que excede a largura */
+            text-overflow: ellipsis; /* Adiciona "..." para texto oculto */
         }
 
+        /* Estilo para o botão/link de "Baixar" */
+        .game-download-link {
+            display: block; /* Ocupa a largura total */
+            background-color: var(--button-bg-color); /* Cor de fundo do botão */
+            color: white; /* Cor do texto do botão */
+            padding: 12px 20px; /* Preenchimento interno */
+            border-radius: 8px; /* Cantos arredondados */
+            text-decoration: none; /* Remove sublinhado padrão de link */
+            font-weight: bold; /* Negrito */
+            margin-top: 15px; /* Margem superior para separar do título do jogo */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave no hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+        }
+
+        .game-download-link:hover {
+            background-color: var(--button-hover-color); /* Cor de fundo mais clara no hover */
+            transform: translateY(-2px); /* Efeito de "levantar" sutil */
+        }
+
+        /* Estilo para a mensagem "Nenhum resultado" */
         .no-results {
             text-align: center;
             font-size: 1.5em;
-            color: #C0C0C0;
+            color: #C0C0C0; /* Cor cinza clara */
             margin-top: 50px;
+            grid-column: 1 / -1; /* Ocupa todas as colunas no grid para centralizar */
         }
 
-        /* Footer */
+        /* Estilos do Rodapé */
         .main-footer {
-            background-color: var(--card-background-color);
-            color: var(--text-color);
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 50px;
-            box-shadow: 0 -4px 15px var(--shadow-color);
+            background-color: var(--card-background-color); /* Cor de fundo do rodapé */
+            color: var(--text-color); /* Cor do texto do rodapé */
+            text-align: center; /* Centraliza o texto */
+            padding: 25px; /* Preenchimento interno */
+            border-top: 1px solid var(--border-color); /* Borda superior */
+            margin-top: 50px; /* Margem superior */
+            box-shadow: 0 -4px 15px var(--shadow-color); /* Sombra */
         }
 
-        /* Responsividade */
+        /* Responsividade para diferentes tamanhos de tela */
         @media (max-width: 768px) {
             .main-header {
                 padding: 15px 20px;
@@ -171,7 +238,7 @@
                 font-size: 1.8em;
             }
             .menu-icon {
-                display: block;
+                display: block; /* Mostra o ícone de menu hambúrguer */
             }
             .hero-section h1 {
                 font-size: 2.5em;
@@ -187,9 +254,15 @@
                 right: 15px;
                 font-size: 1.2em;
             }
-            .section-title {
-                font-size: 2em;
-                margin-bottom: 30px;
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 20px;
+            }
+            .game-card img {
+                height: 240px;
+            }
+            .game-info h2 {
+                font-size: 1.2em;
             }
         }
 
@@ -214,8 +287,19 @@
                 width: calc(100% - 40px);
                 padding: 10px 40px 10px 15px;
             }
-            .game-grid { /* Ajuste para centralizar a mensagem em telas pequenas */
-                grid-template-columns: 1fr;
+            .game-grid {
+                grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+                gap: 15px;
+            }
+            .game-card {
+                max-width: 250px; /* Limita a largura do card em 1 coluna */
+                margin: 0 auto;
+            }
+            .game-card img {
+                height: 200px;
+            }
+            .game-info h2 {
+                font-size: 1.1em;
             }
         }
     </style>
@@ -223,6 +307,7 @@
 <body>
     <header class="main-header">
         <div class="logo">Emulation Home</div>
+        <!-- Ícone de menu hambúrguer - pode ser implementado com JavaScript se quiser um menu responsivo -->
         <i class="fas fa-bars menu-icon"></i>
     </header>
 
@@ -237,30 +322,97 @@
 
     <main class="game-section">
         <div class="game-grid" id="gameList">
+            <!-- 
+                 Lista de Jogos de PC Adicionados.
+                 Cada jogo é um 'div' com a classe 'game-card' para o estilo.
+                 O atributo 'data-name' é usado pelo JavaScript para a funcionalidade de pesquisa.
+                 A URL da capa (src) aponta para o seu próprio repositório GitHub (assets/covers/).
+                 Certifique-se de que as imagens correspondentes estejam na pasta 'assets/covers/'
+                 do seu repositório com os nomes de arquivo corretos.
+                 Cada jogo agora inclui um link de placeholder para download ('game-download-link').
+                 Você deve substituir o 'href="#"' por seus links reais.
+            -->
+
+            <!-- Jogo 1: Red Dead Redemption -->
+            <div class="game-card" data-name="Red Dead Redemption">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/red_dead_redemption.jpg" alt="Red Dead Redemption Cover">
+                <div class="game-info">
+                    <h2>Red Dead Redemption</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a> 
+                </div>
             </div>
-    </main>
 
-    <footer class="main-footer">
-        <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
-    </footer>
+            <!-- Jogo 2: Grand Theft Auto V -->
+            <div class="game-card" data-name="Grand Theft Auto V">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/gta_v.jpg" alt="Grand Theft Auto V Cover">
+                <div class="game-info">
+                    <h2>Grand Theft Auto V</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('searchInput');
-            const gameList = document.getElementById('gameList'); // O contêiner onde a mensagem de resultado será exibida
+            <!-- Jogo 3: Tomb Raider (2013) -->
+            <div class="game-card" data-name="Tomb Raider 2013">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/tomb_raider_2013.jpg" alt="Tomb Raider (2013) Cover">
+                <div class="game-info">
+                    <h2>Tomb Raider (2013)</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-            // Adiciona a mensagem "Nenhum jogo encontrado" por padrão quando a página carrega,
-            // já que não haverá cards inicialmente.
-            const initialNoResults = document.createElement('p');
-            initialNoResults.classList.add('no-results');
-            initialNoResults.textContent = 'Nenhum jogo encontrado com este termo de pesquisa.';
-            gameList.appendChild(initialNoResults);
+            <!-- Jogo 4: Rise of the Tomb Raider -->
+            <div class="game-card" data-name="Rise of the Tomb Raider">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/rise_of_the_tomb_raider.jpg" alt="Rise of the Tomb Raider Cover">
+                <div class="game-info">
+                    <h2>Rise of the Tomb Raider</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
+            <!-- Jogo 5: Metal Gear Solid V The Phantom Pain -->
+            <div class="game-card" data-name="Metal Gear Solid V The Phantom Pain">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/metal_gear_solid_v.jpg" alt="Metal Gear Solid V: The Phantom Pain Cover">
+                <div class="game-info">
+                    <h2>Metal Gear Solid V: The Phantom Pain</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
 
-            // Lógica de pesquisa - ajustada para lidar com a ausência de cards no HTML
-            searchInput.addEventListener('input', (event) => {
-                const searchTerm = event.target.value.toLowerCase();
-                let foundResults = false;
-                // Como não há cards no HTML, esta linha sempre resultará em uma NodeList vazia.
-                // A lógica abaixo agora garantirá que a mensagem "nenhum resultado" sempre apareça ou seja removida.
-                const gameCards
+            <!-- Jogo 6: The Witcher 3 Wild Hunt -->
+            <div class="game-card" data-name="The Witcher 3 Wild Hunt">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/the_witcher_3.jpg" alt="The Witcher 3: Wild Hunt Cover">
+                <div class="game-info">
+                    <h2>The Witcher 3: Wild Hunt</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+
+            <!-- Jogo 7: Fallout 4 -->
+            <div class="game-card" data-name="Fallout 4">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/fallout_4.jpg" alt="Fallout 4 Cover">
+                <div class="game-info">
+                    <h2>Fallout 4</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="#" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+
+            <!-- Jogo 8: Dark Souls III -->
+            <div class="game-card" data-name="Dark Souls III">
+                <img src="https://raw.githubusercontent.com/Cyberlym/emulation-home/main/assets/covers/dark_souls_iii.jpg" alt="Dark Souls III Cover">
+                <div class="game-info">
+                    <h2>Dark Souls III</h2>
+                    <!-- Placeholder para o link de download. Substitua '#' pelo link real do jogo. -->
+                    <a href="https://gofile.io/d/78ooEM" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+
+            <!-- Jogo 9: Dishonored 2 -->
+            <div class="game-card" data-name="Dishonored 2">
+                <i
