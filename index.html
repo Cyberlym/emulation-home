@@ -207,17 +207,17 @@
 
     <main class="game-section">
         <div class="game-grid" id="gameList">
-        
-             <div class="game-card" data-name="Hollow Knight">
-    <div class="game-card-image-wrapper">
-        <img src="https://static.wikia.nocookie.net/hollowknight/images/e/ea/Hollow_Knight_VoidHeart_Edition_Cover.jpg/revision/latest?cb=20220615152331&path-prefix=pt" alt="Capa do Hollow Knight">
-    </div>
-    <div class="game-info">
-        <h2>Hollow Knight</h2>
-        <a href="https://gofile.io/d/4XICAc" class="game-download-link" target="_blank">Baixar Jogo</a>
-    </div>
-</div>
-             
+            
+            <div class="game-card" data-name="Hollow Knight">
+                <div class="game-card-image-wrapper">
+                    <img src="https://static.wikia.nocookie.net/hollowknight/images/e/ea/Hollow_Knight_VoidHeart_Edition_Cover.jpg/revision/latest?cb=20220615152331&path-prefix=pt?v=1" alt="Capa do Hollow Knight">
+                </div>
+                <div class="game-info">
+                    <h2>Hollow Knight</h2>
+                    <a href="https://gofile.io/d/4XICAc" class="game-download-link" target="_blank">Baixar Jogo</a>
+                </div>
+            </div>
+
             <div class="game-card" data-name="GTA 5 Grand Theft Auto V">
                 <div class="game-card-image-wrapper">
                     <img src="https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png" alt="Capa do Grand Theft Auto V">
@@ -227,6 +227,7 @@
                     <a href="https://huggingface.co/spaces/OptiJuegos/lozanogamers/resolve/main/GTA%20V%20LITE%20V5.zip?download=true" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
+
             <div class="game-card" data-name="GTA 4 Grand Theft Auto IV">
                 <div class="game-card-image-wrapper">
                     <img src="https://upload.wikimedia.org/wikipedia/pt/9/91/Grand_Theft_Auto_IV_capa.png" alt="Capa do Grand Theft Auto IV">
@@ -236,6 +237,7 @@
                     <a href="https://drive.usercontent.google.com/download?id=1AVQ147kGKcArqqwZvdIL_wY-6uZ8xs3X&export=download&authuser=0" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
+
             <div class="game-card" data-name="Resident Evil 6">
                 <div class="game-card-image-wrapper">
                     <img src="https://upload.wikimedia.org/wikipedia/pt/7/73/Resident_evil_6.jpg" alt="Capa do Resident Evil 6">
@@ -245,6 +247,7 @@
                     <a href="https://buzzheavier.com/uww3eogkg4ar" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
+
             <div class="game-card" data-name="Cuphead">
                 <div class="game-card-image-wrapper">
                     <img src="https://upload.wikimedia.org/wikipedia/pt/c/c1/Cuphead_capa.png" alt="Capa do Cuphead">
@@ -254,15 +257,17 @@
                     <a href="https://gofile.io/d/jzaTbm" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
+
             <div class="game-card" data-name="Five Nights at Freddy's The Mimic FNAF">
                 <div class="game-card-image-wrapper">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSJL-8A8vzAmHW_Puoynux_I4oAbb3r1F7Vfqs65DjYaml2cQ0Jv2gt99F&s=10" alt="">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSJL-8A8vzAmHW_Puoynux_I4oAbb3r1F7Vfqs65DjYaml2cQ0Jv2gt99F&s=10" alt="Capa do FNAF The Mimic">
                 </div>
                 <div class="game-info">
                     <h2>FNAF - The Mimic</h2>
                     <a href="https://gofile.io/d/Yt2mRo" class="game-download-link" target="_blank">Baixar Jogo</a>
                 </div>
             </div>
+
         </div>
     </main>
     <footer class="main-footer">
@@ -276,7 +281,6 @@
                 const searchInput = document.getElementById('searchInput');
                 const gameGrid = document.getElementById('gameList');
 
-                // Se os elementos principais não existirem, o script para aqui para não quebrar a página.
                 if (!searchInput || !gameGrid) {
                     console.error("Erro: Não foi possível encontrar a barra de busca ou a lista de jogos.");
                     return;
@@ -308,12 +312,9 @@
                         noResultsMessage.remove();
                     }
                 };
-
                 searchInput.addEventListener('input', filterGames);
-            });
+           });
         } catch (e) {
-            // Se qualquer erro inesperado acontecer, ele será mostrado no console
-            // em vez de quebrar a página e gerar uma tela preta.
             console.error("Ocorreu um erro crítico que foi capturado:", e);
         }
     </script>
