@@ -24,7 +24,7 @@
 
         :root {
 
-            --background-color: #000000; /* Preto puro para o fundo geral (OLED) */
+            --background-color: #1A0033; /* ALTERADO: Roxo muito escuro para o fundo geral */
 
             --card-background-color: #1A0033; /* Roxo muito escuro, quase preto, para os fundos dos cards */
 
@@ -53,7 +53,7 @@
 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
 
-            background-color: var(--background-color); /* Aplica a cor de fundo definida (Preto OLED) */
+            background-color: var(--background-color); /* Aplica a cor de fundo definida (Roxo Escuro) */
 
             color: var(--text-color); /* Aplica a cor do texto padrão */
 
@@ -63,89 +63,4 @@
 
             line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
 
-            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
-
-        }
-        /* Estilos do Cabeçalho Principal */
-
-        .main-header {
-
-            background-color: var(--background-color); /* Fundo do cabeçalho (Preto OLED) */
-
-            padding: 15px 40px; /* Preenchimento interno ajustado para ser mais compacto */
-
-            display: flex; /* Usa flexbox para alinhar logo */
-
-            justify-content: center; /* Centraliza o logo (já que o menu foi removido) */
-
-            align-items: center; /* Alinha verticalmente */
-
-            border-bottom: 1px solid var(--border-color); /* Borda inferior sutil */
-
-            box-shadow: 0 2px 8px var(--shadow-color); /* Sombra para profundidade */
-
-        }
-        .logo {
-
-            font-size: 2.2em; /* Tamanho do texto do logo */
-
-            font-weight: bold; /* Negrito */
-
-            color: var(--header-text-color); /* Cor do logo (Roxo Vibrante) */
-
-            text-shadow: 0 0 15px rgba(160, 32, 240, 0.6); /* Efeito de brilho roxo mais intenso */
-
-        }
-        /* A regra .menu-icon foi removida, pois o elemento foi excluído do HTML */
-        /* Seção Principal "Hero" (Título, Descrição e Barra de Pesquisa) */
-
-        .hero-section {
-
-            text-align: center; /* Centraliza o conteúdo */
-
-            padding: 30px 20px 40px; /* Reduzido de 40px 20px 50px */
-
-            background: linear-gradient(180deg, var(--background-color) 0%, #1A0033 100%); /* Gradiente de roxos escuros para preto */
-
-            border-bottom: 1px solid var(--border-color); /* Borda inferior */
-
-            box-shadow: 0 4px 15px var(--shadow-color); /* Sombra */
-
-            margin-top: -20px; /* Puxa a seção um pouco para cima para compactar o topo */
-
-            position: relative; /* Para garantir que a sombra e borda se apliquem corretamente */
-
-            z-index: 1; /* Garante que fique acima de outros elementos se houver sobreposição */
-
-        }
-        .hero-section h1 {
-
-            font-size: 3em; /* Tamanho do título principal */
-
-            color: var(--header-text-color); /* Cor do título (Roxo Vibrante) */
-
-            margin-bottom: 8px; /* Margem abaixo do título */
-
-            text-shadow: 0 0 20px rgba(160, 32, 240, 0.8); /* Brilho roxo no título */
-
-        }
-        .hero-section p {
-
-            font-size: 1.2em; /* Tamanho da fonte da descrição */
-
-            color: var(--text-color); /* Cor da descrição */
-
-            max-width: 700px; /* Largura máxima da descrição */
-
-            margin: 0 auto 30px; /* Margem abaixo da descrição */
-
-        }
-        /* Contêiner da Barra de Pesquisa */
-
-        .search-container {
-
-            position: relative; /* Para posicionar o ícone de pesquisa */
-
-            max-width: 600px; /* Reduzido de 700px para compactar mais a barra */
-
-            margin: 0 auto; /*
+            overflow-x: hidden; /* Ev
