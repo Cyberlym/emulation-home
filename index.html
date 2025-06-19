@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emulation Home</title>
+    <title>Emulation Home - Lista</title>
     <style>
-        /* Conteúdo do style.css */
+        /* Estilos CSS para o tema Dark Roxo e layout de Lista */
         :root {
-            --background-color: #1a1a1a;
-            --card-background-color: #2c2c2c;
-            --text-color: #e0e0e0;
-            --link-color: #4CAF50; /* Um tom de verde para links e destaques */
-            --link-hover-color: #66BB6A;
-            --border-color: #444;
-            --input-background-color: #3a3a3a;
-            --input-text-color: #e0e0e0;
+            --background-color: #120A2E; /* Roxo escuro bem profundo */
+            --card-background-color: #2F1E5E; /* Roxo um pouco mais claro para os cards */
+            --text-color: #E0E0FF; /* Texto em roxo claro/branco */
+            --highlight-color: #9C27B0; /* Roxo vibrante para destaque e links */
+            --highlight-hover-color: #BA68C8; /* Roxo mais claro para hover */
+            --border-color: #5E35B1; /* Borda roxa escura */
+            --input-background-color: #4A2B86; /* Fundo do input roxo */
+            --input-text-color: #E0E0FF;
         }
 
         body {
@@ -31,177 +31,61 @@
             padding: 20px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         header h1 {
             margin: 0;
-            color: var(--link-color);
+            color: var(--highlight-color);
+            font-size: 2.8em;
+            text-shadow: 0 0 10px rgba(156, 39, 176, 0.6); /* Sutil brilho roxo */
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: var(--text-color);
         }
 
         .search-bar {
-            margin-top: 15px;
+            margin-top: 25px;
         }
 
         #searchInput {
             width: 80%;
-            max-width: 500px;
-            padding: 12px 20px;
+            max-width: 600px;
+            padding: 15px 25px;
             border: 1px solid var(--border-color);
-            border-radius: 25px;
+            border-radius: 30px;
             background-color: var(--input-background-color);
             color: var(--input-text-color);
-            font-size: 1em;
+            font-size: 1.1em;
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         #searchInput::placeholder {
-            color: #999;
+            color: #AF8EEA; /* Roxo mais claro para placeholder */
         }
 
         #searchInput:focus {
-            border-color: var(--link-color);
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
         }
 
         main {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 30px;
-            max-width: 1200px;
-            margin: 20px auto;
+            max-width: 900px; /* Mais estreito para lista */
+            margin: 30px auto;
+            padding: 20px;
         }
 
-        .game-card {
+        .game-list-item {
             background-color: var(--card-background-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .game-card img {
-            width: 100%;
-            height: 200px; /* Altura fixa para as capas */
-            object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .game-info {
-            padding: 15px;
-            text-align: center;
-            flex-grow: 1; /* Permite que o info ocupe o espaço restante */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .game-info h2 {
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: var(--text-color);
-            white-space: nowrap; /* Evita quebra de linha */
-            overflow: hidden; /* Oculta o excesso */
-            text-overflow: ellipsis; /* Adiciona "..." */
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            main {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 20px;
-                padding: 20px;
-            }
-
-            #searchInput {
-                width: 90%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            main {
-                grid-template-columns: 1fr;
-                padding: 15px;
-            }
-
-            .game-card img {
-                height: 180px;
-            }
-
-            .game-info h2 {
-                font-size: 1.2em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Emulation Home</h1>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Pesquisar jogos...">
-        </div>
-    </header>
-
-    <main id="gameList">
-        </main>
-
-    <footer>
-        <p>&copy; 2025 Emulation Home. Todos os direitos reservados.</p>
-    </footer>
-
-    <script>
-        /* Conteúdo do games.json (como uma string JSON) */
-        const gamesJsonData = `
-[
-    {
-        "id": "hollowknight",
-        "name": "Hollow Knight",
-        "cover": "assets/covers/hollow_knight.jpg"
-    },
-    {
-        "id": "stardewvalley",
-        "name": "Stardew Valley",
-        "cover": "assets/covers/stardew_valley.jpg"
-    },
-    {
-        "id": "undertale",
-        "name": "Undertale",
-        "cover": "assets/covers/undertale.jpg"
-    },
-    {
-        "id": "celeste",
-        "name": "Celeste",
-        "cover": "assets/covers/celeste.jpg"
-    },
-    {
-        "id": "cuphead",
-        "name": "Cuphead",
-        "cover": "assets/covers/cuphead.jpg"
-    },
-    {
-        "id": "deadcells",
-        "name": "Dead Cells",
-        "cover": "assets/covers/dead_cells.jpg"
-    },
-    {
-        "id": "oriandtheblindforest",
-        "name": "Ori and the Blind Forest",
-        "cover": "assets/covers/ori_blind_forest.jpg"
-    },
-    {
-        "id": "thewitness",
-        "name": "The Witness",
-        "cover": "assets/covers/the_witness.jpg"
-    },
-    {
-        "
+            align-items: center;
+            gap: 25px; /* Espaçamento entre capa e texto */
+            box-shadow:
