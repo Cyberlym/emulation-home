@@ -3,215 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emulation Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Teste Emulation Home</title>
     <style>
-        /* Variáveis de Cores - Tema Dark Roxo */
-        :root {
-            --background-color: #1A0D3B; /* Roxo muito escuro, quase preto */
-            --card-background-color: #2F1E5E; /* Roxo escuro para cards */
-            --text-color: #E0E0FF; /* Texto principal roxo claro */
-            --header-text-color: #A742F7; /* Roxo vibrante para títulos */
-            --highlight-color: #D37AFF; /* Roxo mais claro para destaque e ícones */
-            --input-bg-color: #4A2B86; /* Fundo da busca roxo mais claro */
-            --input-text-color: #E0E0FF;
-            --border-color: #5E35B1; /* Borda sutil */
-            --shadow-color: rgba(0, 0, 0, 0.5);
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            background-color: #1A0D3B; /* Roxo muito escuro */
+            color: #E0E0FF; /* Texto roxo claro */
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            overflow-x: hidden; /* Evita scroll horizontal indesejado */
-        }
-
-        /* Header */
-        .main-header {
-            background-color: var(--background-color);
-            padding: 20px 40px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: var(--header-text-color);
-            text-shadow: 0 0 15px rgba(211, 122, 255, 0.5);
-        }
-
-        .menu-icon {
-            font-size: 1.8em;
-            color: var(--highlight-color);
-            cursor: pointer;
-            display: none; /* Esconde em telas grandes */
-        }
-
-        /* Hero Section (Área principal ajustada para ser mais compacta) */
-        .hero-section {
-            text-align: center;
-            padding: 30px 20px 40px; /* Padding ajustado para ser mais compacto */
-            background: linear-gradient(180deg, var(--background-color) 0%, #2A175B 100%);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px var(--shadow-color);
-        }
-
-        .hero-section h1 {
-            font-size: 3em;
-            color: var(--header-text-color);
-            margin-bottom: 8px; /* Margem menor */
-            text-shadow: 0 0 20px rgba(211, 122, 255, 0.7);
-        }
-
-        .hero-section p {
-            font-size: 1.2em;
-            color: var(--text-color);
-            max-width: 700px;
-            margin: 0 auto 25px; /* Margem menor */
-        }
-
-        /* Search Bar */
-        .search-container {
-            position: relative;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .search-input {
-            width: calc(100% - 60px); /* 100% menos o padding e ícone */
-            padding: 15px 50px 15px 25px; /* Mais padding à direita para o ícone */
-            border: 2px solid var(--border-color);
-            border-radius: 30px;
-            background-color: var(--input-bg-color);
-            color: var(--input-text-color);
-            font-size: 1.1em;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .search-input::placeholder {
-            color: #AF8EEA;
-        }
-
-        .search-input:focus {
-            border-color: var(--highlight-color);
-            box-shadow: 0 0 15px rgba(211, 122, 255, 0.6);
-        }
-
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--highlight-color);
-            font-size: 1.3em;
-        }
-
-        /* Seções de Jogos - Removido o título da seção e o grid inicial de jogos */
-        .game-section {
-            padding: 0px 20px; /* Padding ajustado */
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        /* Oculta o título da seção de jogos, já que não será usado agora */
-        .section-title {
-            display: none;
-        }
-
-        /* O game-grid agora será o contêiner para a mensagem "nenhum resultado" e para jogos adicionados via JS (se for o caso) */
-        .game-grid {
-            display: flex; /* Muda para flexbox para centralizar a mensagem */
             justify-content: center;
             align-items: center;
-            min-height: 200px; /* Altura mínima para a mensagem ou futuros cards */
-        }
-
-
-        .game-card { /* Mantido para estilo futuro, mas não visível por padrão */
-            display: none; /* Esconde todos os cards por padrão */
-        }
-
-        .no-results {
+            min-height: 100vh; /* Ocupa a altura total da tela */
             text-align: center;
-            font-size: 1.5em;
-            color: #C0C0C0;
-            margin-top: 50px;
-            /* Se for usado em grid, esta linha é útil, se não, pode ser removida */
-            /* grid-column: 1 / -1; */
         }
-
-        /* Footer */
-        .main-footer {
-            background-color: var(--card-background-color);
-            color: var(--text-color);
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 50px;
-            box-shadow: 0 -4px 15px var(--shadow-color);
+        h1 {
+            color: #A742F7; /* Roxo vibrante para o título */
+            font-size: 3em;
         }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .main-header {
-                padding: 15px 20px;
-            }
-            .logo {
-                font-size: 1.8em;
-            }
-            .menu-icon {
-                display: block;
-            }
-            .hero-section h1 {
-                font-size: 2.5em;
-            }
-            .hero-section p {
-                font-size: 1em;
-            }
-            .search-input {
-                padding: 12px 45px 12px 20px;
-                font-size: 1em;
-            }
-            .search-icon {
-                right: 15px;
-                font-size: 1.2em;
-            }
-            .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-                gap: 20px;
-            }
-            .game-card img {
-                height: 240px;
-            }
-            .game-info h2 {
-                font-size: 1.2em;
-            }
-            .section-title {
-                font-size: 2em;
-                margin-bottom: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .main-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .menu-icon {
-                margin-top: 10px;
-            }
-            .hero-section {
-                padding: 30px 15px;
-            }
-            .hero-section h1 {
-                font-size: 2em;
-            }
-            .hero-section p {
-                font-size: 0.9em;
+    </style>
+</head>
+<body>
+    <h1>Emulation Home - Teste</h1>
+</body>
+</html>
