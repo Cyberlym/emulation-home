@@ -1,107 +1,151 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Emulation Home</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
+
         /*
+
          * Seção de Variáveis CSS (Tema Dark Roxo - Oled Preto)
+
          * Aqui definimos as cores que serão usadas em toda a interface para facilitar a modificação.
+
          */
+
         :root {
+
             --background-color: #000000; /* Preto puro para o fundo geral (OLED) */
+
             --card-background-color: #1A0033; /* Roxo muito escuro, quase preto, para os fundos dos cards */
+
             --text-color: #E0E0FF; /* Cor principal do texto (roxo claro/branco) */
+
             --header-text-color: #A020F0; /* Roxo vibrante para títulos e logo */
+
             --highlight-color: #9C27B0; /* Roxo mais escuro para destaque e bordas de foco */
+
             --input-bg-color: #330066; /* Fundo da busca roxo mais escuro */
+
             --input-text-color: #E0E0FF;
+
             --border-color: #5E35B1; /* Borda sutil */
+
             --shadow-color: rgba(0, 0, 0, 0.7); /* Cor base para sombras mais intensas no preto */
+
             --button-bg-color: #7B1FA2; /* Roxo mais escuro para botões */
+
             --button-hover-color: #AF52DE; /* Roxo mais claro para hover do botão */
-        }
 
+        }
         /* Estilos Globais para o Corpo da Página */
+
         body {
+
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e limpa */
+
             background-color: var(--background-color); /* Aplica a cor de fundo definida (Preto OLED) */
+
             color: var(--text-color); /* Aplica a cor do texto padrão */
+
             margin: 0; /* Remove margens padrão do navegador */
+
             padding: 0; /* Remove preenchimento padrão do navegador */
+
             line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+
             overflow-x: hidden; /* Evita rolagem horizontal indesejada */
-        }
 
+        }
         /* Estilos do Cabeçalho Principal */
+
         .main-header {
+
             background-color: var(--background-color); /* Fundo do cabeçalho (Preto OLED) */
+
             padding: 15px 40px; /* Preenchimento interno ajustado para ser mais compacto */
+
             display: flex; /* Usa flexbox para alinhar logo */
+
             justify-content: center; /* Centraliza o logo (já que o menu foi removido) */
+
             align-items: center; /* Alinha verticalmente */
+
             border-bottom: 1px solid var(--border-color); /* Borda inferior sutil */
+
             box-shadow: 0 2px 8px var(--shadow-color); /* Sombra para profundidade */
-        }
 
+        }
         .logo {
+
             font-size: 2.2em; /* Tamanho do texto do logo */
+
             font-weight: bold; /* Negrito */
+
             color: var(--header-text-color); /* Cor do logo (Roxo Vibrante) */
+
             text-shadow: 0 0 15px rgba(160, 32, 240, 0.6); /* Efeito de brilho roxo mais intenso */
-        }
 
+        }
+        /* A regra .menu-icon foi removida, pois o elemento foi excluído do HTML */
         /* Seção Principal "Hero" (Título, Descrição e Barra de Pesquisa) */
+
         .hero-section {
+
             text-align: center; /* Centraliza o conteúdo */
-            padding: 30px 20px 40px;
+
+            padding: 30px 20px 40px; /* Reduzido de 40px 20px 50px */
+
             background: linear-gradient(180deg, var(--background-color) 0%, #1A0033 100%); /* Gradiente de roxos escuros para preto */
+
             border-bottom: 1px solid var(--border-color); /* Borda inferior */
+
             box-shadow: 0 4px 15px var(--shadow-color); /* Sombra */
-            margin-top: -20px;
-            position: relative;
-            z-index: 1;
-        }
 
+            margin-top: -20px; /* Puxa a seção um pouco para cima para compactar o topo */
+
+            position: relative; /* Para garantir que a sombra e borda se apliquem corretamente */
+
+            z-index: 1; /* Garante que fique acima de outros elementos se houver sobreposição */
+
+        }
         .hero-section h1 {
+
             font-size: 3em; /* Tamanho do título principal */
+
             color: var(--header-text-color); /* Cor do título (Roxo Vibrante) */
-            margin-bottom: 8px;
+
+            margin-bottom: 8px; /* Margem abaixo do título */
+
             text-shadow: 0 0 20px rgba(160, 32, 240, 0.8); /* Brilho roxo no título */
-        }
 
+        }
         .hero-section p {
+
             font-size: 1.2em; /* Tamanho da fonte da descrição */
+
             color: var(--text-color); /* Cor da descrição */
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
 
+            max-width: 700px; /* Largura máxima da descrição */
+
+            margin: 0 auto 30px; /* Margem abaixo da descrição */
+
+        }
         /* Contêiner da Barra de Pesquisa */
+
         .search-container {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-        }
 
-        .search-input {
-            width: calc(100% - 60px);
-            padding: 15px 50px 15px 25px;
-            border: 2px solid var(--border-color);
-            border-radius: 30px;
-            background-color: var(--input-bg-color); /* Fundo da barra (Roxo mais escuro) */
-            color: var(--input-text-color);
-            font-size: 1.1em;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
-        }
+            position: relative; /* Para posicionar o ícone de pesquisa */
 
-        .search-input::placeholder {
-            color: #C080E0; /* Cor do texto do placeholder (roxo claro) */
-        }
+            max-width: 600px; /* Reduzido de 700px para compactar mais a barra */
 
-        .search-input:focus {
-            border-color: var(--highlight-color); /* Muda a cor da borda ao focar (Roxo de destaque)
+            margin: 0 auto; /*
