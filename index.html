@@ -322,3 +322,59 @@
     </script>
 </body>
 </html>
+async function buscarJogosDaApi() {
+    try {
+        // 1. Substitua esta URL pela URL DA SUA API NO RENDER:
+        const apiUrl = 'https://api-jogos-backend-1.onrender.com/api/games'; 
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+            throw new Error(`Erro ao buscar dados da API: Status ${response.status}`);
+        }
+
+        const jogos = await response.json(); // Aqui estão seus jogos do MongoDB!
+        console.log('Jogos recebidos da API:', jogos);
+
+        // 2. AGORA VOCÊ PRECISA EXIBIR ESSES JOGOS NO SEU HTML.
+        //    Você vai precisar de um lugar no seu HTML para colocar os jogos, por exemplo:
+        //    <div id="container-jogos"></div>
+
+        const containerJogos = document.getElementById('container-jogos'); // Verifique se o ID está correto no seu HTML
+        if (containerJogos) {
+            containerJogos.innerHTML = ''; // Limpa qualquer conteúdo antigo
+
+            if (jogos.length === 0) {
+                containerJogos.innerHTML = '<p>Nenhum jogo encontrado na base de dados.</p>';
+            } else {
+                jogos.forEach(jogo => {
+                    const divJogo = document.createElement('div');
+                    divJogo.classList.add('card-jogo'); // Opcional: Adicione classes para estilização
+                    divJogo.innerHTML = `
+                        <h2>${jogo.title || 'Título Desconhecido'}</h2>
+                        <p>Gênero: ${jogo.genre || 'N/A'}</p>
+                        <p>Plataforma: ${jogo.platform || 'N/A'}</p>
+                        <p>Ano de Lançamento: ${jogo.releaseYear || 'N/A'}</p>
+                        ${jogo.imageUrl ? `<img src="${jogo.imageUrl}" alt="${jogo.title}" style="max-width: 100px;">` : ''}
+                        <p>${jogo.description || 'N/A'}</p>
+                        <hr>
+                    `;
+                    containerJogos.appendChild(divJogo);
+                });
+            }
+        } else {
+            console.error("Elemento 'container-jogos' não encontrado no HTML.");
+        }
+
+    } catch (error) {
+        console.error('Erro ao conectar ou buscar da API:', error);
+        const containerJogos = document.getElementById('container-jogos');
+        if (containerJogos) {
+            containerJogos.innerHTML = '<p>Não foi possível carregar os jogos no momento. Tente novamente mais tarde.</p>';
+        }
+    }
+}
+
+// 3. Chame esta função quando a página do seu site carregar completamente.
+//    Certifique-se de que o script que chama esta função está APÓS o elemento HTML onde os jogos serão exibidos.
+document.addEventListener('DOMContentLoaded', buscarJogosDaApi);
